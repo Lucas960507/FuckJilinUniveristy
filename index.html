@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保险学 · 期末复习（完整版）</title>
+<style>
+:root{--blue-50:#f0f6ff;--blue-100:#dce8fb;--blue-200:#bed6f7;--blue-300:#8fbaf0;--blue-400:#5a94e1;--blue-500:#3b76cc;--blue-600:#2b5ea8;--blue-700:#244b8a;--blue-800:#1e3d6e;--text:#1a2332;--text-light:#555;--bg:#f8fafc;--white:#fff;--border:#dde5f0;--shadow:0 1px 3px rgba(44,62,80,0.08);--radius:8px;--transition:0.2s ease}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+header{background:linear-gradient(135deg,var(--blue-600),var(--blue-500));color:#fff;padding:28px 24px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(44,62,80,0.15)}
+header h1{font-size:1.6rem;font-weight:700;letter-spacing:.05em}
+header p{font-size:.85rem;opacity:.85;margin-top:4px}
+.tab-nav{display:flex;background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:96px;z-index:99;padding:0 16px;overflow-x:auto}
+.tab-btn{flex:1;min-width:100px;padding:14px 16px;border:none;background:none;cursor:pointer;font-size:.95rem;color:var(--text-light);font-weight:500;transition:var(--transition);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tab-btn:hover{color:var(--blue-500)}
+.tab-btn.active{color:var(--blue-600);border-bottom-color:var(--blue-500);font-weight:700}
+.tab-content{display:none;max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+.tab-content.active{display:block}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.search-box{flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.9rem;outline:none;transition:var(--transition);background:var(--white)}
+.search-box:focus{border-color:var(--blue-400);box-shadow:0 0 0 3px rgba(90,148,225,0.1)}
+.filter-select{padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.9rem;background:var(--white);outline:none;cursor:pointer}
+.btn{padding:10px 18px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.9rem;cursor:pointer;background:var(--white);transition:var(--transition);font-weight:500}
+.btn:hover{background:var(--blue-50);border-color:var(--blue-300)}
+.btn-primary{background:var(--blue-500);color:#fff;border-color:var(--blue-500)}
+.btn-primary:hover{background:var(--blue-600)}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow)}
+.card-header{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;user-select:none;transition:var(--transition);border-left:4px solid transparent}
+.card-header:hover{background:var(--blue-50)}
+.card-header.active{border-left-color:var(--blue-500);background:var(--blue-50)}
+.card-header .arrow{font-size:.75rem;transition:transform .3s;color:var(--blue-400)}
+.card-header.active .arrow{transform:rotate(90deg)}
+.card-body{display:none;padding:12px 18px 18px;border-top:1px solid var(--border)}
+.card-body.show{display:block}
+.card-body p,.card-body li{font-size:.9rem;color:var(--text-light)}
+.card-body ul{padding-left:20px}
+.card-body li{margin-bottom:4px}
+.card-body strong{color:var(--text)}
+.card-body .sub-heading{font-size:.95rem;font-weight:700;color:var(--blue-700);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px dashed var(--blue-200)}
+.case-section{background:var(--blue-50);border-radius:6px;padding:12px 16px;margin:12px 0;border-left:3px solid var(--blue-400)}
+.case-section .case-title{font-weight:700;color:var(--blue-700);margin-bottom:6px}
+.mcq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.mcq-item .q-num{display:inline-block;background:var(--blue-100);color:var(--blue-700);padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:600;margin-right:8px}
+.mcq-item .q-text{font-weight:600;margin:10px 0 8px;font-size:.95rem}
+.mcq-item .q-opts{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:.9rem;color:var(--text-light);margin:6px 0 10px}
+.mcq-item .q-opts span{padding:4px 0}
+.answer-toggle{display:inline-block;padding:6px 16px;border-radius:16px;font-size:.8rem;cursor:pointer;border:1.5px solid var(--blue-300);color:var(--blue-500);background:transparent;transition:var(--transition)}
+.answer-toggle:hover{background:var(--blue-50)}
+.answer-content{display:none;margin-top:10px;padding:10px 14px;background:var(--blue-50);border-radius:6px;font-size:.88rem;border-left:3px solid var(--blue-400)}
+.answer-content.show{display:block}
+.answer-content .correct{color:#1b7e3d;font-weight:700}
+.unit-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;background:#e8eef6;color:#5a7a9a;margin-left:6px}
+.knowledge-link{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;background:var(--blue-100);color:var(--blue-600);margin-left:6px;cursor:pointer;text-decoration:none;border:1px solid var(--blue-200)}
+.knowledge-link:hover{background:var(--blue-200)}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--blue-700);margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue-200);display:flex;align-items:center;gap:8px}
+.section-title .dot{width:8px;height:8px;border-radius:50%;background:var(--blue-400);flex-shrink:0}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.stat-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:10px 16px;font-size:.85rem;color:var(--text-light)}
+.stat-item b{color:var(--blue-600)}
+@media(max-width:600px){.mcq-item .q-opts{grid-template-columns:1fr}header h1{font-size:1.3rem}.tab-btn{font-size:.85rem;padding:12px 10px}}
+@media print{header,.tab-nav,.controls{position:static}.card-body{display:block!important}.answer-content{display:block!important}}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#c5d0df;border-radius:3px}
+</style>
+</head>
+<body>
+<header><h1>保险学 · 期末复习</h1><p>7单元完整知识点 + 详细案例 + 历年真题（50选择+20名词+25简答）</p></header>
+<nav class="tab-nav">
+<button class="tab-btn active" onclick="switchTab('knowledge')">知识点浏览</button>
+<button class="tab-btn" onclick="switchTab('mcq')">选择题 (50题)</button>
+<button class="tab-btn" onclick="switchTab('shortanswer')">名词解释 & 简答</button>
+</nav>
+
+<div id="tab-knowledge" class="tab-content active">
+<div class="controls">
+<input class="search-box" placeholder="搜索知识点..." oninput="filterKnowledge(this.value)">
+<button class="btn" onclick="expandAll()">全部展开</button>
+<button class="btn" onclick="collapseAll()">全部折叠</button>
+</div>
+<!-- ===== 第一单元：风险管理与保险 ===== -->
+<div class="card" id="unit1">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第一单元 · 风险管理与保险</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">1.1 风险概述</p>
+<p><strong>风险的定义（四种视角）</strong></p>
+<ul>
+<li><strong>传统定义</strong>：结果的不确定性，通常伴随损失的可能性</li>
+<li><strong>ISO标准</strong>：不确定性对目标的影响</li>
+<li><strong>损失可能性</strong>：风险是损失发生的可能性，或可能发生的损失</li>
+<li><strong>偏离期望</strong>：风险是结果对期望（目标）的偏离，损失的变化范围越大风险越大（即使期望损失相同）</li>
+</ul>
+<p><strong>风险的分类</strong></p>
+<ul>
+<li><strong>可分散风险（非系统性风险）</strong> vs <strong>不可分散风险（系统性风险）</strong></li>
+<li><strong>纯粹风险(Pure Risk)</strong>：只产生损失无收益 —— <em>保险只保纯粹风险！</em>（所以市面上是医疗险、寿险、财产险，而非股票保险、期货保险）</li>
+<li><strong>投机风险(Speculative Risk)</strong>：收益和损失皆有可能（如炒股、赌博）</li>
+</ul>
+<p><strong>纯粹风险的六大特性（核心考点）</strong></p>
+<ul>
+<li><strong>客观性</strong>：客观存在无法消除</li>
+<li><strong>偶然性</strong>：是否发生、发生时间、地点、程度等不确定（必然发生的事不能称之为风险）</li>
+<li><strong>普遍性</strong>：无处不在，无时不有</li>
+<li><strong>社会性</strong>：与人类社会利益相关（暴风雪发生在南极北极就不算风险）</li>
+<li><strong>可测性</strong>：可计算发生概率及损失大小（通过大数定律）</li>
+<li><strong>可变性</strong>：性质、数量及大小会发生变化</li>
+</ul>
+
+<p class="sub-heading">1.2 风险构成要素（因果关系链）</p>
+<p><strong>风险因素(Hazard)</strong> → <strong>风险事故(Peril)</strong> → <strong>损失(Loss)</strong></p>
+<ul>
+<li><strong>有形风险因素(Physical Hazard)</strong>：导致损失发生的物质因素（如路面结冰、设备老化）</li>
+<li><strong>无形风险因素(Invisible Hazard)</strong>：
+  <ul>
+    <li><strong>道德风险因素(Moral Hazard)</strong>：不诚实、不良企图或欺诈行为（<em>怀有不良企图</em>）</li>
+    <li><strong>心理风险因素(Morale Hazard)</strong>：行为上的粗心大意和漠不关心（<em>态度风险因素</em>）</li>
+  </ul>
+</li>
+<li><strong>风险事故(Peril)</strong>：导致损失发生的直接原因——自然现象（天灾）、社会政治经济变动（人祸）、人或物内在属性缺陷（疾病、设备故障）</li>
+<li><strong>损失(Loss)</strong>：偶然的、非预期的、非计划的经济价值减少或灭失，<em>必须可用货币计量</em>
+  <ul>
+    <li><strong>直接损失</strong>：风险事故对标的本身造成的破坏事实</li>
+    <li><strong>间接损失（关联损失）</strong>：由于直接损失所引起的破坏事实——损失的是未来可得利益，必须具有实际意义且属于直接影响所及范围（厂房机器损毁导致营业中断的利润损失要赔；因堵车迟到被扣奖金不赔——相关性不够紧密）</li>
+  </ul>
+</li>
+</ul>
+<p><strong>注意：同一事件在不同情况下可能是风险因素也可能是风险事故</strong>——暴雪导致房屋被压垮→暴雪是风险事故（气候变化是风险因素）；暴雪导致汽车打滑撞垮房屋→暴雪是风险因素（车祸是风险事故）</p>
+
+<p class="sub-heading">1.3 风险种类（多维度分类）</p>
+<ul>
+<li><strong>按起因</strong>：自然风险（地震洪水台风）vs 社会风险（偷盗抢劫战争）</li>
+<li><strong>按发生形态</strong>：静态风险（自然不规则运动+人的过错行为）vs 动态风险（社会经济政治变动）</li>
+<li><strong>按损失后果</strong>：财产风险（物理损坏/贬值/征收）、人身风险（健康&生命）、责任风险（过失侵权→交强险/产品责任/公众责任<em>注意只有责任限额</em>）、信用风险（经济交往违约→信用保证保险）</li>
+<li><strong>个人风险</strong>（个人和家庭）：失业、早逝、退休后收入不足、健康衰退、财产损失、责任</li>
+<li><strong>商业风险</strong>（企业）：财产、责任、间接损失（种类少但复杂程度更高）</li>
+</ul>
+
+<p class="sub-heading">1.4 风险管理</p>
+<p><strong>风险管理概念</strong>：识别和度量风险，采用合理手段处理风险，以最小成本保障最大利益。主体是独立的经济单位，强调人的主动行为。</p>
+<p><strong>风险成本 = 实际成本 + 无形成本 + 预防控制成本</strong></p>
+<ul>
+<li><strong>实际成本</strong>：风险事故发生的直接损失+间接损失</li>
+<li><strong>无形成本</strong>：无法准确衡量价值的损失（名誉损失、机会成本损失）</li>
+<li><strong>预防控制成本</strong>：为预防控制风险采取措施所花费的费用（安装报警设备、购买灭火器材等）</li>
+</ul>
+<p><strong>风险管理过程（六步）</strong>：确定风险管理目标 → 识别风险 → 衡量风险 → 处理风险 → 评估风险管理绩效 → 调整风险管理方案</p>
+<p><strong>风险管理目标</strong>：损失前目标（降低概率+降低损失）；损失后目标（降低直接和间接损失）</p>
+<p><strong>风险识别方法</strong>：专家法、清单法、财务报表分析、流程分析、投入产出分析、现场检查、历史统计分析</p>
+<p><strong>风险衡量（Heinrich三角图 1:30:300）</strong>：1次最大伤害事故 ← 30次小伤害事故 ← 300次无伤害事故</p>
+<ul>
+<li><strong>损失概率</strong>（损失机会）</li>
+<li><strong>损失程度</strong>：发生损失金额的算术平均</li>
+<li><strong>损失变异性</strong>：损失的波动程度</li>
+</ul>
+<p><strong>风险处理两大路径</strong></p>
+<ul>
+<li><strong>风险控制</strong>（控制概率和程度）：风险回避 → 损失控制（预防降低概率+抑制减少幅度）→ 风险单位隔离（分离或复制）</li>
+<li><strong>风险融资</strong>（资金转移）：保险（不消除风险，只转移）→ 非保险转移（出售/出租）→ 风险自留/自保(Self-insurance)</li>
+</ul>
+<p><strong>效益成本比</strong>：大于1时该策略可取；多个方案比选最大值</p>
+
+<p class="sub-heading">1.5 可保风险(Insurable Risk)</p>
+<p><strong>传统五大判定标准</strong></p>
+<ul>
+<li><strong>纯粹风险</strong>：只产生损失无收益</li>
+<li><strong>损失可测性</strong>：必须可以通过数学方法测算发生概率（需要大量过往案例）</li>
+<li><strong>损失金额明确性</strong>：损失须可用货币计量（责任险→责任限额；寿险→生命无价定额给付）</li>
+<li><strong>损失偶然性</strong>：发生与否、时间、程度不可控</li>
+<li><strong>损失经济可行性</strong>：保费水平可被接受（航天/卫星发射可采用多家保险公司联合承保）</li>
+</ul>
+<p><strong>传统标准遇到的挑战 → 不可保→可保的核心因素</strong></p>
+<ul>
+<li><strong>人类需求与社会稳定</strong>（美国2002年《恐怖主义风险保险法案》要求保险公司将恐怖袭击列为可保；2019年新西兰基督城枪击案——保险公司虽将恐怖袭击列为不可保但全部理赔）</li>
+<li><strong>保险公司责任感和品牌荣誉感</strong></li>
+<li><strong>技术进步</strong>（科技水平发展将不可保风险转化为可保风险，如建立互联网大数据库预测地震风险）</li>
+</ul>
+<p><strong>承保不可保风险的具体方法</strong>：联合保险、再保险、金融工具应用、现代化科技手段</p>
+
+<div class="case-section">
+<p class="case-title">经典案例（5个）</p>
+<p><strong>1. 张三家庭风险案例分析</strong>：30岁自由职业者，单身，与年迈父母同住，自住房（贷款未还清）+汽车。风险识别：房屋及家庭财产损失风险、车辆（被盗/损坏/第三者责任/乘客安全）风险、本人和父母健康意外风险、收入中断风险（张三为家庭唯一收入来源）。管理方案：综合人身保险（重大疾病险+寿险）+ 家财险 + 车险（含车上人员保障，因父母也要坐车）。</p>
+<p><strong>2. 企业火灾期望值决策（核心计算题）</strong>：建筑物价值1000万（可保价值750万，已扣除土地地基250万），火灾必导致全损，间接损失280万。火灾概率5%，安装预防设备后概率降至3%，预防设备价值10万（遇火灾全损），保费6万。</p>
+<p>方案一（风险自留）：E = 1030×5% + 0×95% = <strong>51.5万</strong></p>
+<p>方案二（自留+风险控制）：可保损失降至500万，间接损失降至140万。E = 650×3% + 10×97% = <strong>29.2万</strong>。效益成本比 = (51.5-29.2)/10 = <strong>2.23</strong></p>
+<p>方案三（购买保险）：E = 286×5% + 6×95% = <strong>20万</strong>。效益成本比 = (51.5-20)/6 = <strong>5.25 → 最优方案</strong></p>
+<p><strong>3. 酒后驾车险</strong>：天安保险2003年推出"非常事故损失特约险"，作为三者险附加险。满足传统五项可保标准但引发巨大争议——纵容酒驾vs以人为本保障第三方。网上调查大部分人认为会纵容酒驾。事实：一年仅售约300份，无一理赔，次年停售。启示：社会、心理和文化因素对可保性的影响——符合传统标准不一定可保，保险具有社会性，需符合社会需求。</p>
+<p><strong>4. 地震巨灾保险</strong>：一般财产险将地震列为除外责任。满足传统五项标准但经济可行性存疑（巨灾损失巨大，单个保险公司难以承受）。应对：巨灾债券转移风险、政府支持、科技水平提高（风险数据库建立），2016年首个国家倡议的地震保险产品面世。</p>
+<p><strong>5. 恐怖袭击保险</strong>：早期可保→后列为除外责任→需求变化后重新可保。美伊战争期间，虽然费率大大提高但仍在承保。核心驱动因素：人们的特定需求、保险公司社会责任、技术进步。但随着局势变化（如通过霍尔木兹海峡被认为必然受损），可能再次不可保——体现可保性的动态变化。</p>
+</div>
+</div></div>
+<!-- ===== 第二单元：保险概述 ===== -->
+<div class="card" id="unit2">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第二单元 · 保险概述</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">2.1 保险的起源与发展</p>
+<p><strong>西方古代保险雏形</strong></p>
+<ul>
+<li><strong>古埃及</strong>（公元前4500年）：石匠互助基金组织——收缴会费支付会员死后丧葬费用（最早人寿/意外险雏形，待考证）</li>
+<li><strong>古巴比伦</strong>（公元前2250年）：汉莫拉比法典中有类似火灾保险规定，国王命令向居民征税筹集火灾及天灾救济基金</li>
+<li><strong>古罗马</strong>：年老体弱者聚集共同出资抵御疾病、灾难和死亡</li>
+<li><strong>地中海</strong>：共同海损分摊原则载入《罗地安海商法》（公元前916年）——"一人为众，众为一人"</li>
+<li><strong>中世纪欧洲</strong>：基尔特(Guild)制度——职业相同者相互扶助，对会员死亡、火灾、疾病、盗窃等互助共济</li>
+</ul>
+<p><strong>中国古代保险思想</strong></p>
+<ul>
+<li>3000年前"分舟运米"；西周后备仓储；春秋仓储制度；西汉"常平仓"制度；隋文帝"义仓"+"官仓"</li>
+<li><strong>镖局</strong>：押运货物和安全保障——原始保险形式。乾隆年间山西人神拳张黑五创办兴隆镖局</li>
+</ul>
+<p><strong>现代保险里程碑（按时间顺序）</strong></p>
+<ul>
+<li><strong>1347年</strong>：第一张商业保单——意大利商船"圣科勒拉"号（现代商业保险起源：海上保险）</li>
+<li><strong>1583年</strong>：最早人寿保单——伦敦理查德·马丁</li>
+<li><strong>1666年</strong>：伦敦大火（燃烧五天五夜，85%被烧毁）→ <strong>1667年牙医巴蓬创办火灾保险</strong></li>
+<li><strong>1662年</strong>：John Graunt制作第一张生命表；1693年哈雷制作人口死亡率表（用于预测死亡率）</li>
+<li><strong>1762年</strong>：第一家现代人身保险公司——英国伦敦公平人寿保险社</li>
+<li><strong>17世纪中叶</strong>：最早再保险（海上再保险）；1813年最早火灾再保险合同</li>
+<li><strong>1855年</strong>：最早责任保险——英国铁路承运人责任险</li>
+<li><strong>1895年</strong>：最早汽车保险——英国汽车第三者责任险</li>
+<li><strong>1911年</strong>：最早航空保险——英国劳合社</li>
+</ul>
+<p><strong>新中国保险业</strong></p>
+<ul>
+<li>1949年10月20日：中国人民保险公司成立</li>
+<li>1958-1980年：国内保险业务停办</li>
+<li>1980年：恢复；1998年10月撤销人保</li>
+</ul>
+
+<p class="sub-heading">2.2 保险的概念</p>
+<p><strong>保险五大基本特征（核心考点）</strong></p>
+<ul>
+<li><strong>风险转移</strong>：主体是投保人（将风险转移给保险人）</li>
+<li><strong>风险分散</strong>：主体是保险人（聚合同质性标的，大数定律）</li>
+<li><strong>基金聚积</strong>：收取保费建立保险基金</li>
+<li><strong>损失分摊</strong>：事后，基于大数定律，出险者和未出险者共同分摊成本</li>
+<li><strong>损失补偿</strong>：对约定风险导致的损失提供经济保障</li>
+</ul>
+<p><strong>风险分散 vs 损失分摊</strong>：都基于大数定律，聚焦大量同分布相互独立样本。风险分散是<em>事前</em>的，损失分摊是<em>事后</em>的。</p>
+
+<p><strong>损失分摊数学推导（重点理解）</strong></p>
+<ul>
+<li><strong>独立同分布</strong>：甲乙两人各拥有价值20万的车，全损概率10%。个人承担：期望损失=2万，方差=36。两人分摊后：期望不变=2万，方差=18（降一半）。<strong>n→∞时方差→0，风险趋近于零</strong></li>
+<li><strong>不独立但同分布</strong>：协方差不为零 → 无法通过增加人数降低风险（一个人的损失会影响其他人）</li>
+<li><strong>独立但不同分布</strong>：破车和豪车、营运车和家用车分开 → 方差更大，放大了风险</li>
+<li><strong>结论：只有独立同分布时，才能准确用大数定律实现风险分散并进一步损失分摊</strong></li>
+</ul>
+
+<p><strong>保险定义（保险法第2条）</strong>：投保人支付保费，保险人对约定事故承担赔偿保险金责任（财产险）或给付保险金责任（人身险）。<br>
+<strong>社会保险定义</strong>：国家通过立法建立社会保险基金，对劳动者年老、疾病、伤残、失业、生育等给予物质帮助的社会保障制度。</p>
+
+<p><strong>保险对象（保险标的）</strong></p>
+<ul>
+<li><strong>人身标的物</strong>：被保险人的生命和身体机能</li>
+<li><strong>非人身标的物</strong>：标的物的经济价值（有形：房屋车辆货物家畜；无形：信用责任债权）</li>
+<li><strong>区分标准</strong>：能否准确估价、能否复原、能否转让</li>
+</ul>
+
+<p><strong>主要参与者</strong>：投保人（缴费）→ 保险人（承保）→ 被保险人（财产/人身受保障）→ 受益人（仅人身险有，被保险人死亡时享保险金请求权）</p>
+
+<p><strong>保险 vs 赌博</strong></p>
+<ul>
+<li>赌博产生<strong>投机风险</strong> vs 保险处理<strong>纯粹风险</strong>；赌博可能获利 vs 保险无获利可能</li>
+<li>赌博可针对与赌徒无关的事 vs 保险强调可保利益原则；赌博无社会利益 vs 保险对社会有益</li>
+</ul>
+<p><strong>保险 vs 对冲</strong>：转移风险不同；补偿原理不同（大数定律 vs 反向操作）。最相似的金融衍生品：期权(Option)、信用违约互换(CDS)。</p>
+
+<p><strong>自保(Self-insurance)</strong>：风险自留形式。优点：无信息不对称、避免逆选择/道德风险、节约成本。缺点：规模经济劣势、风险分散不充分、占用母公司成本、风险管理弱于商业保险公司。我国自保公司：中海油、中石化、中石油、中广核、中铁、中远海运、广东粤电、上海电气。</p>
+
+<p class="sub-heading">2.3 保险的分类</p>
+<ul>
+<li><strong>按性质</strong>：商业保险（营利/自愿）、社会保险（非营利/强制/社会公平）、政策保险（政府政策目的：农业/信用/输出/巨灾）</li>
+<li><strong>按标的</strong>：人身保险、财产保险、责任保险、信用保证保险</li>
+<li><strong>按实施方式</strong>：强制保险（交强险——商业保险中唯一强制）、自愿保险</li>
+<li><strong>按危险转移层次</strong>：原保险/再保险；<strong>复合保险</strong>（投保人投保多家但保额未超实际价值）vs <strong>重复保险</strong>（保额超实际价值，<em>不允许</em>）vs <strong>共同保险</strong>（保险公司主动联合共同承保）</li>
+<li><strong>定值保险</strong>：双方事先约定保险价值（古董/艺术品等价值难以确定的标的）。赔偿额 = 保险金额 × 损失程度；损失程度 = (实际价值-残值)/保险标的实际价值。举例：古董投保时确定价值5千万，运输中发生损失仍按5千万为基准按比例赔偿。</li>
+<li><strong>不定值保险</strong>：按损失时实际价值确定。保障程度(≤1) = 保险金额/损失时完好实际价值；赔偿额 = 损失额 × 保障程度</li>
+<li><strong>不足额投保</strong>产生原因：少缴保费、保险人只接受不足额投保（风险高）、合同签订后标的价值上涨。赔偿金 = 损失金额 × (约定保险金额/保险价值)</li>
+</ul>
+<p><strong>保险法第55条</strong>：约定保险价值的按约定价值计算（定值）；未约定的按事故发生时实际价值计算（不定值）；保险金额不得超过保险价值，超过部分无效应退保费；不足额保险按保额与保险价值比例赔偿。</p>
+<p><strong>定值保险例题</strong>：约定标的价值100万保额100万，出险时实际价值(1)90万→全损赔100万/部分50%赔50万；(2)110万→全损赔100万/部分50%赔50万。<br>
+<strong>不定值保险例题</strong>：保额100万，出险时实际价值(1)90万→全损赔90万/部分50%赔45万；(2)110万→全损赔100万/部分50%赔50万（定额限制在保额内）。</p>
+
+<p class="sub-heading">2.4 保险的代价</p>
+<ul>
+<li><strong>运营成本</strong>：纯保费 + 成本支出 = 毛保费</li>
+<li><strong>逆向选择（事前信息不对称）</strong>：高风险人群更倾向投保→信号传递（投保人主动告知）+ 信号筛选（保险人主动核保）→ 最大诚信原则</li>
+<li><strong>道德风险（事后信息不对称）</strong>：投保后行为改变增加损失→设置免赔额 + 加强监督（但免赔额客观上刺激夸大信息，矛盾）</li>
+</ul>
+
+<div class="case-section">
+<p class="case-title">经典案例（3个骗保案）</p>
+<p><strong>1. 2020年福建骗保案</strong>：保险代理人甲伙同客户乙等5人，虚构家庭成员、伪造投保资料为已故人员购买重疾险。两年后以被保险人病故为由申请理赔并提交虚假材料。最终6人因保险诈骗罪获刑，挽回损失89万元。涉及保险法27条（谎报事故/编造虚假原因）。</p>
+<p><strong>2. 2019年邵某断指骗保案</strong>：邵某先后在多家保险公司投保人身意外险900余万元。自称在家剁大骨头不慎砍掉左手拇指食指。疑点：短时间多份投保、断指均至根部拒不接植、配偶2019年初因类似意外获赔23万。法院判保险诈骗罪（未遂），有期徒刑三年缓刑四年，罚金2万元。体现逆选择风险+道德风险。</p>
+<p><strong>3. 重庆父子团伙骗保案</strong>：张某驾车轧坏王某手包（包内86万名表+手机），理赔成功。同年4月重庆又发类似案件——两起肇事司机为父子关系。深入调查发现团伙骗保，网上购买二手名表制造假事故。体现道德风险——事后信息不对称。</p>
+</div>
+</div></div>
+<!-- ===== 第三单元：保险基本原则（重点章节） ===== -->
+<div class="card" id="unit3">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第三单元 · 保险基本原则（重点）</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">3.1 最大诚信原则(Utmost Good Faith)</p>
+<p><strong>起源</strong>：1766年Carter v Boehm案，Mansfield勋爵判罚；最早成文法：1906年《英国海上保险法》。我国保险法第5条："保险活动当事人行使权利、履行义务应当遵循诚实信用原则。"</p>
+<p><strong>含义</strong>：充分、准确、双向告知有关保险的所有<strong>重要事实</strong>（是否影响缔约）；不允许欺骗（提供虚假信息）和隐瞒（该提供的信息故意不予提供）。</p>
+<p><strong>规定原因</strong></p>
+<ul>
+<li><strong>保险活动中的信息不对称</strong>：投保人对保险标的信息优势 + 保险人对合同条款的信息优势（附和性合同由保险人制定）</li>
+<li><strong>保险本身的不确定性</strong>：风险事故发生具有不确定性</li>
+</ul>
+
+<p><strong>告知（如实告知）</strong></p>
+<ul>
+<li><strong>时间</strong>：合同订立前/订立时/订立后均有告知义务（如以家用车名义投保后转去开滴滴→须告知）</li>
+<li><strong>投保人告知</strong>：订立时如实填写投保单并签字；合同有效期内危险程度增加须告知；标的转移须通知保险人确认；事故发生后及时通知；有重复保险须通知</li>
+<li><strong>投保人告知形式</strong>：<strong>主观告知（询问回答告知）</strong>——仅对保险人提出的问题如实回答（现行主流）；客观告知（无限告知）——与标的风险状况相关的内容无明确规定全部告知</li>
+<li><strong>保险人告知</strong>：订立时说明合同条款内容（特别是免责条款）；约定条件满足时履行赔偿给付义务</li>
+<li><strong>保险人告知形式</strong>：明确列示（合同中告知）+ 明确说明（对投保人解释，特别是免责条款）</li>
+</ul>
+
+<p><strong>保证(Warranty)</strong></p>
+<ul>
+<li>对某一事项的作为/不作为、某状态存在/不存在的许诺（如盗窃险要求仓库24小时专人看管）——目的是控制风险</li>
+<li><strong>违反保证→保险人可宣告合同无效！无需证明因果关系</strong></li>
+<li><strong>明示保证</strong>：认定事项保证（确认保证，涉及过去与现在）+ 约定事项保证（承诺保证，涉及现在与未来）</li>
+<li><strong>默示保证</strong>（海上保险）：适航性、不绕行（按预定航线）、合法性（不非法经营/不运输违禁品）</li>
+</ul>
+
+<p><strong>弃权与禁止反言（重点）</strong></p>
+<ul>
+<li><strong>弃权</strong>：放弃保险合同本可主张的权利</li>
+<li><strong>禁止反言</strong>：不得要求重新主张已经放弃的权利</li>
+<li><strong>不可抗辩条款（保险法第16条）</strong>：合同成立超过2年+被保险人生存→保险人不得解除合同（即便不知道也要赔付）；自保险人知道解除事由起超30日不行使而消灭</li>
+<li><strong>视为保险人弃权的五种情况</strong>：明知违背义务仍接受补缴保费；明知有拒赔抗辩权仍要求提供损失证明；明知损失证明有纰漏仍无条件接受；事故后投保人逾期通知仍接受；明知违背义务仍保持沉默</li>
+<li>弃权与禁止反言一般在<strong>人寿保险</strong>中出现（财产险多一年期，不涉及），时间限制2年</li>
+</ul>
+
+<p><strong>违反最大诚信原则的法律后果</strong></p>
+<ul>
+<li><strong>投保人故意</strong>：不赔不退</li>
+<li><strong>投保人重大过失</strong>：不赔但退保费</li>
+<li><strong>保险人在订立时已知投保人未如实告知</strong>：不得解除合同，须赔付</li>
+<li><strong>保险人违反告知（免责条款未明确说明）</strong>：该条款不产生效力</li>
+<li><strong>有利被保险人解释（保险法第30条）</strong>：对合同条款有争议时，法院或仲裁机关应作有利于被保险人和受益人的解释</li>
+<li><strong>保险人违反告知的行政处罚（保险法第139条）</strong>：阻碍告知/诱导不告知/非法回扣→对保险公司5-30万罚款，对人员2-10万罚款</li>
+<li><strong>司法解释（二）第6条</strong>：投保人告知义务限于保险人询问范围；保险人以概括性条款拒赔不被支持，须具体列举</li>
+<li><strong>违反保证</strong>：保险人有权解除或不赔付且不退保费。例外：环境变化无法履行（海上保险）、法律法规变更、保险人事先弃权</li>
+</ul>
+
+<p class="sub-heading">3.2 保险利益原则(Insurable Interest)</p>
+<p><strong>定义（保险法第12条，考试必考）</strong>：投保人或被保险人对保险标的具有的<strong>法律上承认的利益</strong>。性质：①保险合同的客体（非保险标的本身）②合同生效的依据（无保险利益→合同无效）③不等于保险合同利益（保险金请求权）。条件：合法、客观存在、确定的经济利益。</p>
+<p><strong>财产险保险利益</strong>：所有权（完全利益）、使用权、经营权、承运权/保管权、债权（如银行对抵押品商品房）、潜在责任（如洗衣店对客户衣服）</p>
+<ul>
+<li>包括：现有利益、预期利益（租金）、责任利益（车辆三者/产品/雇主）、合同利益（国际贸易）</li>
+</ul>
+<p><strong>人身险保险利益（保险法第31条）</strong>：本人；配偶、子女、父母；有抚养/赡养/扶养关系的家庭成员/近亲属；有劳动关系的劳动者（受益人必须是其亲属，不能是公司法人）；被保险人同意投保（视为具有保险利益）</p>
+<p><strong>适用时限（核心考点！）</strong></p>
+<ul>
+<li><strong>人身险</strong>：<strong>合同订立时</strong>必须具有保险利益</li>
+<li><strong>财产险</strong>：<strong>保险事故发生时</strong>必须具有保险利益</li>
+</ul>
+<p><strong>坚持保险利益原则的意义</strong>：防止赌博行为、防止道德风险、明确保险责任、限制保险金额（规定保障最高限度，不允许额外获利）</p>
+<p><strong>保险利益的变动</strong>：财产险——标的灭失→保险利益灭失；继承/让与/破产→保险利益转移。人身险——被保险人自杀等除外责任原因死亡→保险利益灭失；债权债务关系→可转移，由继承人继承；亲属关系→无法转移。</p>
+<p><strong>保险法第49条（财产险标的转让）</strong>：受让人承继被保险人的权利义务；须及时通知保险人（货物运输险除外）；危险程度显著增加→30日内保险人可增保费或解除；未通知→因转让导致危险显著增加发生的事故不赔。</p>
+
+<p class="sub-heading">3.3 近因原则(Proximate Cause)</p>
+<p><strong>含义</strong>：引起保险标的损失<strong>最直接、最有效、起决定作用</strong>的因素——<em>效果上最接近，非时间空间上最接近</em>。如近因属于保险责任→赔付；如近因属于除外责任→不赔付。</p>
+<p><strong>近因认定的四种情况</strong></p>
+<ul>
+<li><strong>单一原因致损</strong>：直接认定</li>
+<li><strong>多种原因同时致损</strong>：看是否同属承保/除外责任；若皆有→损失可明确界定→分别处理；损失无法明确界定且无法确定近因→按比例（司法解释三第25条）</li>
+<li><strong>多种原因连续发生</strong>：追溯最根本原因</li>
+<li><strong>多种原因间断发生</strong>：看是否插入新的独立原因</li>
+</ul>
+
+<p class="sub-heading">3.4 损失补偿原则（重点）</p>
+<p><strong>含义</strong>：以保险责任范围内的损失发生为前提，以被保险人的<strong>实际损失为限</strong>，不能因损失获额外利益。金额限制：免赔额 + 赔偿限额 + 保险利益。</p>
+<p><strong>主要体现</strong>：财产险中的不定值保险 + 人身险中的医疗费用补偿。</p>
+<p><strong>意义</strong>：约定赔偿准则（足额/不足额/超额投保的赔偿标准）、防止额外获益、防范道德危险</p>
+<p><strong>例外（不适用损失补偿原则）</strong>：定值保险（古董/艺术品/名画/传家宝）、重置成本保险（赔付不扣除折旧）、人寿保险（生命无价，约定给付）、重大疾病保险（定额给付）</p>
+
+<p><strong>重复保险分摊（保险法第56条）</strong></p>
+<ul>
+<li><strong>比例分摊</strong>：赔偿金额 = 损失金额 × 该保险人承保保额/所有保险人承保保额总和</li>
+<li><strong>限额分摊</strong>：赔偿金额 = 损失金额 × 该保险人赔偿限额/所有保险人赔偿限额总和</li>
+<li><strong>顺序分摊</strong>：按承保顺序依次赔付</li>
+<li>例题：房屋50万，甲保30万乙保50万，损失40万。比例分摊：甲40×(30/80)=15万/乙25万。限额分摊：甲40×(30/70)=22.86万/乙40×(40/70)=17.14万。</li>
+</ul>
+
+<p><strong>代位追偿（权利代位，保险法第60条）</strong>：保险人赔偿后在赔偿金额范围内代位行使被保险人对第三者请求赔偿的权利。</p>
+<ul>
+<li>条件：对保险人和第三者同时存在赔偿请求权 + 要求第三者赔偿 + 保险人须先履行赔偿责任方可代位</li>
+<li>金额：以已赔付金额为限；被保险人获赔小于损失→有权继续向第三者追偿</li>
+<li>适用范围：<strong>财产保险+涉及医疗费用的健康险</strong>；<strong>人身险给付性（死亡/伤残）不适用（保险法第46条）</strong></li>
+<li>不得对被保险人及其家人/组成人员行使代位追偿权（不被视为第三者）</li>
+</ul>
+
+<p><strong>委付（物上代位，保险法第59条）</strong>：发生保险事故造成标的推定全损→将标的全部权益转移给保险人→请求按保险金额全数赔偿（常见于海上保险）。</p>
+<ul>
+<li>条件：推定全损；由被保险人向保险人提出；就整体标的提出要求；需经保险人同意（可拒绝）；不得附加条件</li>
+<li>与代位追偿区别：代位追偿是权利代位，保险人无须承担其他义务；委付是物上代位，保险人一并接收标的权利和义务。代位追偿保险人不可拒绝，委付保险人可拒绝。</li>
+</ul>
+
+<div class="case-section">
+<p class="case-title">经典案例（15个，本章考试重点最多）</p>
+<p><strong>1. Carter v Boehm (1766) —— 最大诚信原则起源</strong>：马尔堡总督Carter投保海上保险，未告知堡垒防御缺陷。法国攻克马尔堡后，保险公司以未如实披露为由拒赔。Mansfield勋爵判：保险人明知风险存在却未主动询问而承保，不能证明投保人故意隐瞒；投保时战争仅是可能性，位于伦敦的保险公司更应了解战争风险（可视为公共信息）；认定保险公司履行赔偿责任。确立最大诚信原则。</p>
+<p><strong>2. Notre Dame船保证条款案</strong>：船从利物浦启航时46名船员（保证条款要求≥50），途中补足至50人后被法国人捕获。保险公司以违反保证条款拒赔——法院支持：违反保证条款即可宣告合同无效，无需证明因果关系。</p>
+<p><strong>3. Stipcich v Metropolitan Life (1928)</strong>：投保人5月投保答"无胃病"→6月确诊胃溃疡→7月1日保单生效→12月因胃癌去世。法院判保险公司无需赔付：保险合同订立前、订立时、订立后均有告知义务。若保单签发、合同生效之后才诊断出来则正常赔付。</p>
+<p><strong>4. 张三为母亲投保高血压案</strong>：母亲有高血压病史但病例显示系孙子患病导致上火、短期血压增高、医嘱适当用药。法院认定系短期非长期疾病，保险公司需理赔。保险人签合同时有权调取医保档案，应自行核查。</p>
+<p><strong>5. 小李慢性肝炎案——超过两年不可抗辩</strong>：小李2015年4月投保人寿险附加重疾未告知慢性肝炎，2018年2月心肌梗塞理赔。因合同超过2年，适用不可抗辩条款，保险公司不得解除合同。</p>
+<p><strong>6. 小张为父亲投保骗保案——道德风险例外</strong>：父亲已确诊右肺腺癌仍投保并隐瞒，超两年后死亡。保险公司拒赔——骗保行为属道德风险，即使超出两年抗辩期也无效。背景：香港/欧美保险"严进宽出"，大陆"宽进严出"。</p>
+<p><strong>7. Macaura v Northern Assurance —— 保险利益经典</strong>：Macaura是木材公司唯一股东和债权人，以个人名义为公司木材投保火灾险。法院判无保险利益：股东只有分红权无所有权；债权人身份下木材未作为抵押品。保险利益必须是明确、合法的经济利益。</p>
+<p><strong>8. 雷兰德船舶鱼雷案 —— 近因原则经典</strong>："艾卡丽亚号"被德国潜艇鱼雷击中→拖至港口→港口当局令其离港→风浪中沉没。上议院判近因是鱼雷（战争行为=除外责任）而非风浪。Lord Shaw：近因应是造成损失结果最有效的因素，非时间上最近。</p>
+<p><strong>9. 老鼠咬管案(Hamilton v Pandorf) —— 近因判定</strong>：船上老鼠咬破管道→海水渗入→货物受损。上议院判海水进舱是近因（海上风险=承保风险）。老鼠仅制造了一个洞，海水是损失的有效主导原因，鼠害的除外条款仅适用于老鼠直接致损情形。</p>
+<p><strong>10. 酒后摔倒意外险案</strong>：张三投保意外险，餐馆饮酒后跌倒致四级伤残。病例记录"患者饮酒后摔伤头部"。保险公司拒赔——近因是饮酒（非意外），摔倒系饮酒导致。关键：是不是意外——饮酒是决定性因素。</p>
+<p><strong>11. 老王心脏病案</strong>：老王投保意外险，上街买菜与摩托车擦碰后心脏病发作死亡。保险公司拒赔——近因是心脏病（内在疾病），擦碰仅是诱因。实务中可能双方协商按比例赔偿。</p>
+<p><strong>12. 整容手术除外责任案</strong>：小李投保健康医疗险，美容医院整容术后面瘫。保险公司拒赔——美容手术属除外责任，不在理赔范围（因火灾毁容等必须进行的整容手术不算）。</p>
+<p><strong>13. 张三轿车代位追偿案</strong>：张三车被李四撞（李四主责75%）。法院判保险公司应先赔偿再代位追偿——主责75%由保险公司代位追偿，剩余25%除去交强险外由保险公司赔偿。司法解释四第10条：保险公司拒绝代位追偿不合理。</p>
+<p><strong>14. 4S店试驾案</strong>：林某试驾与货车相撞（全责），4S店已投保车损险和三者险。法院判保险公司赔偿车辆修复费后，可向签了《试驾协议书》的林某（被视为第三方）进行代位追偿。若没有试驾协议书，林某不会被视为第三方，保险公司无法追偿。</p>
+<p><strong>15. 老张医保追偿案</strong>：老张被老李骑车撞伤，治疗15万（医保支付10万+商保5万）。商业医疗险（补偿型）可追偿；根据《社会保险法》第30条，医保基金支付后也有权向第三人追偿。</p>
+</div>
+</div></div>
+<!-- ===== 第四单元：保险合同 ===== -->
+<div class="card" id="unit4">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第四单元 · 保险合同</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">4.1 保险合同概述</p>
+<p><strong>特点（六种）</strong></p>
+<ul>
+<li><strong>不要式合同</strong>：无需特定形式，口头书面均可（非要式合同）</li>
+<li><strong>附和性合同（格式合同）</strong>：一方拟定条款，另一方只能选择是否接受（vs 协议性合同——双方充分协商后签订）</li>
+<li><strong>有偿合同</strong>：享有权利须付出代价——对价：投保人支付保费，保险人承担风险</li>
+<li><strong>条件合同</strong>：合同责任的履行取决于特定条件是否满足（投保人是否遵守条件+约定事故是否发生）</li>
+<li><strong>双务合同</strong>（我国）：双方互享权利互担义务（vs 单务合同——美国视保险合同为单务合同）</li>
+<li><strong>射幸合同(Aleatory)</strong>：一方付出代价换取不确定的机会——由事件的不确定性导致不等价交换（vs 等价交换合同Commutative）</li>
+</ul>
+<p><strong>保险法第13条</strong>：投保人提出保险要求经保险人同意承保→合同<strong>成立</strong>。第14条：合同成立后，投保人按约定缴保费，保险人按约定时间开始承担保险责任。</p>
+
+<p class="sub-heading">4.2 保险合同要素</p>
+<p><strong>主体</strong></p>
+<ul>
+<li><strong>当事人</strong>：投保人（民事行为能力+保险利益+缴费）+ 保险人（法定资格——依法成立的保险公司：国有独资/股份/有限/相互制）</li>
+<li><strong>关系人</strong>：<strong>被保险人</strong>（财产或人身受保障+保险金请求权——可以一个或多个）+ <strong>受益人</strong>（仅人身险有，保险金受领人——由被保险人或投保人指定，投保人指定须经被保险人同意）</li>
+<li><strong>辅助人</strong>：代理人（受保险人委托，不能同时接受两家及以上委托）+ 经纪人（基于投保人利益，仅限有限责任公司）+ 公估人（评估鉴定）</li>
+</ul>
+<p><strong>客体</strong>：保险利益（不是保险标的本身——保险标的是保险利益的载体）</p>
+<p><strong>保险法第33条</strong>：不得为无民事行为能力人投保以死亡为给付条件的保险（父母为未成年子女投保除外，但有限额——10岁以下20万/10-18岁50万）</p>
+<p><strong>保险法第34条</strong>：以死亡为给付条件的合同，未经被保险人同意并认可保险金额的，合同无效；未经被保险人书面同意不得转让或质押。</p>
+<p><strong>合同内容（保险法第18条10项必备）</strong>：保险人名称住所；投保人被保人姓名住所+受益人姓名住所；保险标的；保险责任和责任免除；保险期间和保险责任开始时间；保险金额；保险费及支付办法；保险金赔偿或给付办法；违约责任和争议处理；订立合同年月日。</p>
+<p><strong>合同条款类型</strong>：基本条款（法定，保险人拟定须具备）vs 特约条款——保证条款+<strong>附加条款（效力优于基本条款）</strong>+协会条款（仅海上保险）</p>
+<p><strong>合同形式（效力层级从低到高）</strong>：投保单 → 暂保单（临时凭证，保单签发时自动失效）→ 保险单 → 保险凭证（小保单，法律效力相同，无保险条款）→ <strong>批单（效力最高——后批优于前批，手写优于打印，加贴批优于正文批）</strong></p>
+
+<p class="sub-heading">4.3 合同的订立与履行</p>
+<p><strong>成立 vs 生效</strong></p>
+<ul>
+<li><strong>成立</strong>：要约（投保人提出）+ 承诺（保险人同意承保）→ 承诺生效时成立</li>
+<li><strong>生效</strong>：成立之日起生效，需要<strong>对价</strong>（缴保费）。可附条件（如激活）或附期限（如次日零时起保）</li>
+<li><strong>有效要件</strong>：主体合格+内容合法+意思表示真实+不违反公共利益</li>
+</ul>
+<p><strong>合同变更</strong>：主体变更（标的权利转移，合同转让）；客体变更（标的种类数量变化→价值增减→保险利益变化）；内容变更（主体不变时权利义务变更→须投保人申请+保险人审核同意签发批单）</p>
+
+<p><strong>合同中止（仅适用于人寿保险）vs 终止</strong></p>
+<ul>
+<li><strong>中止条件</strong>：分期缴费+已缴首期+超60天宽限期未缴当期保费→合同效力<strong>暂停</strong>（宽限期内事故仍赔付可扣减欠缴保费）</li>
+<li><strong>复效</strong>：2年内补交保费+利息+健康证明→效力恢复（保险法第36-37条）</li>
+<li><strong>2年未复效</strong>：保险人有权解除合同。交足2年以上→退现金价值；未交足→扣手续费后退保费</li>
+<li><strong>终止</strong>：自然终止（期满/履行完毕）+ 提前终止（标的灭失/合同解除）——永久不再存续</li>
+</ul>
+
+<p><strong>合同解除</strong></p>
+<ul>
+<li><strong>投保人</strong>：合同成立后可无条件解除（被保险人解除有条件限制——保险法司法解释三第2条：以书面形式通知撤销同意可认定为解除）</li>
+<li><strong>保险人</strong>解除条件：未及时缴续期保费；标的危险程度增加；违反最大诚信原则；引发道德风险（保险法第27条——谎报事故不赔不退；故意制造事故不赔不退；伪造变造证据虚报部分不赔）</li>
+</ul>
+
+<p class="sub-heading">4.4 争议处理</p>
+<p><strong>解释原则</strong>：文义解释 → 意图解释 → 专业解释 → <strong>有利被保险人和受益人解释（保险法第30条）</strong></p>
+<p><strong>争议方式</strong>：协商 → 调解（民间/行政/仲裁/法院）→ 仲裁（一裁终局，有强制执行效力）→ 诉讼（二审终审，最激烈方式）</p>
+<p><strong>效力层级</strong>：批单正文、后批前批、手写打印、特约条款基本条款</p>
+
+<div class="case-section">
+<p class="case-title">经典案例（7个）</p>
+<p><strong>1. 幸福安康卡激活案</strong>：老孙花200元购买保险卡未激活，7月4日摔伤后当天激活（保单载明7月5日零时起生效）。保险公司以合同尚未生效拒赔。法院支持：合同可附条件和期限——激活=生效条件；代理人购买时已尽说明义务。启示：合同成立≠合同生效，生效条件未满足保险公司不担责。</p>
+<p><strong>2. 邻居代投保案（默示弃权）</strong>：甲为邻居乙投保重疾险并缴费，乙同意并电话确认。后乙患癌理赔，保险公司以投保人无保险利益拒赔。法院判保险公司败诉：乙已口头同意（被保险人同意即可视有保险利益）；保险公司订立时未提异议=默示弃权。</p>
+<p><strong>3. 未成年人投保限额案</strong>：父母为7岁儿子投保100万寿险——无效（10岁以下限20万）。爷爷为7岁孙子投保寿险——无效（只能由父母投保）。爷爷为7岁孙子投保住院医疗险——有效（不涉及死亡给付）。爷爷为10岁孙子投保100万寿险——无效（10-18岁限50万）。涉及死亡给付的险种（意外险/寿险）未成年人只能由父母投保且有限额！幼儿园代签意外险无效。</p>
+<p><strong>4. 团体意外险+工伤保险案</strong>：家电公司未缴工伤保险，员工小李工伤9级伤残。法院判：工伤保险待遇15万由公司支付；团意险10万另赔给小李——伤残保险金是给付性质不受损失补偿约束，可同时获工伤待遇+意外险金。但医疗费用属补偿型不可双重获赔。</p>
+<p><strong>5. 重症急性胰腺炎条款案（保险法第19条）</strong>：老李投保重疾险，出院诊断胰腺囊肿但未做外科剖腹手术。保险公司以条款要求"接受外科剖腹手术治疗"拒赔。法院依据保险法第19条认定该条款无效——"免除保险人依法应承担义务或加重投保人/被保险人责任的"格式条款无效。</p>
+<p><strong>6. 某团骑手猝死案（保险法第30条）</strong>：骑手张三投保某团意外险（突发疾病身故60万），接单后脑出血死亡。保险公司称"配送订单非某团平台"。法院判：如认为"仅限某团订单"是免责条件须在投保时作足以引起注意的提示；保险法第30条有利被保险人解释原则适用。</p>
+<p><strong>7. 货车超载免责条款提示义务案</strong>：张三货车雪天超载侧翻，保险公司以超载免责拒赔。法院要求保险公司证明已尽提示义务：前端界面显著性（加粗/标红/加大字号）+强制阅读程序有效性（页面停留时间合理，不足1秒=形式阅读）+操作轨迹不可篡改性（含时间戳日志）。电子投保须满足强制停留阅读程序。</p>
+</div>
+</div></div>
+<!-- ===== 第五单元：保险与经济 ===== -->
+<div class="card" id="unit5">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第五单元 · 保险与经济</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">5.1 保险与金融</p>
+<p><strong>中国保险业现状（2025年数据）</strong></p>
+<ul>
+<li>原保险保费收入：<strong>6.12万亿元</strong>（同比+7.43%），世界第2位。财产险1.47万亿(+2.57%)；人身险4.65万亿(+9.05%)——寿险3.56万亿、健康险9973亿、意外险961亿</li>
+<li>总资产：<strong>35.91万亿元</strong>（2024年底）。从第一个1万亿用24年，1到10万亿用10年，10到20万亿用6年，20到35万亿用4年</li>
+<li>机构数量：财险公司88家、人身险公司92家、再保险公司16家；上市险企9家（国寿/平安/太保/新华/人保/太平/阳光/中再/众安在线）</li>
+</ul>
+<p><strong>关键指标</strong></p>
+<ul>
+<li><strong>保险深度</strong> = 保费收入/GDP。我国2025年约4.37%（2024约4.36%）；全球平均7.8%，发达国家10-12%。北京7.5%→黑龙江6.9%→吉林5.6%→广东5.4%</li>
+<li><strong>保险密度</strong> = 人均保费。我国2025年约590美元（2024年约4400元/人）；全球平均880美元，发达国家3000-10000美元。北京16234元→上海11063元→江苏6419元</li>
+</ul>
+<p><strong>WTO对外开放进程</strong>：1992年友邦→2001年入世→取消地域限制和业务范围限制→2020年外资比例可达100%（合资寿险公司外资比例限制正式取消）</p>
+
+<p><strong>保单贷款</strong>：仅限寿险，以保单作质押向保险公司借款。实质：提前支取保单现金价值。额度≤现金价值70-80%，期限≤6个月，利率一般高于同期银行贷款利率。形式：保费自动垫交+现金贷款。</p>
+
+<p><strong>存款保险制度</strong>：2015年5月1日施行。存款保险基金管理机构管理。被保险存款含人民币+外币。最高偿付<strong>50万元</strong>，超出部分从清算财产中受偿。截至2025年末参保机构3112家，基金余额1304.352亿元。银行体系脆弱性：资产负债率极高（90%以上）+资产负债期限不匹配+挤提效应。</p>
+
+<p><strong>贷款信用保证保险</strong>：信用保险——权利人投保+权利人被保险人（义务人未按时还贷→保险公司偿还）；住房抵押贷款保证保险——义务人投保+权利人被保险人（银行通常要求强制投保）。</p>
+
+<p><strong>PCS巨灾期权（1995年芝加哥期货交易所，1999年退出市场）</strong></p>
+<ul>
+<li>核心逻辑：将保险损失指数化→期权形式买卖。指数=巨灾损失累积额(超2500万)/1亿美元</li>
+<li>金融本质：<strong>牛市看涨价差(Bull Call Spread)</strong></li>
+<li>每份合约赔付 = 200 × max(min(Pt, b) - a, 0) 美元</li>
+<li><strong>起赔点a</strong> = 保险公司起赔额 ÷ (市场份额 × 损失相关性) ÷ 1亿</li>
+<li>退出原因：巨灾债券等其他产品更受欢迎；标准化指数与实际损失间存在"基差"</li>
+</ul>
+
+<p><strong>PCS期权计算例题（重点）</strong>：保险公司对冲超出7500万的2500万损失，市场份额0.5%，相关性50%。起赔点a = 7500万/(0.5%×50%)/1亿 = <strong>300点</strong>；封顶点b = (7500+2500)万/(0.5%×50%)/1亿 = <strong>400点</strong>。一份合约最高赔付 = 100点×200美元 = 2万美元。需买2500万/2万 = <strong>1250份</strong>。损失320亿→PCS指数=200×(320-300)=4000美元/份 → 总行权=4000×1250=500万美元；购买成本=1250×2×200=50万美元；净补偿=<strong>450万美元</strong></p>
+
+<p><strong>巨灾债券(Cat Bond)</strong>：SPRV发行，全额抵押消除交易对手风险。LIBOR+固定利率。类型：本金保障型/本金部分保障型/本金无保障型。目的：将巨灾风险转移至资本市场。2025年发行量达创纪录256亿美元。</p>
+<p><strong>流行病毒巨灾债券</strong>：世界银行2017年7月首发，3年3.2亿美元。A类（低风险）2.25亿：LIBOR+6.5%；B类（高风险）0.95亿：LIBOR+11.1%。2020年4月COVID触发总赔付1.9584亿美元。B类按死亡人数阶梯式本金赔付。</p>
+<p><strong>中国第一只巨灾债券</strong>：2015年7月1日境外发行，发起人中再产险，发行人SPV PandaRe，保障地震风险，5000万美元。</p>
+<p><strong>保单贷款ABS</strong>：2016年3月31日太平人寿首发，规模5亿元期限6个月评级AAA。后续太保/平安/新华/泰康/友邦均发行。</p>
+
+<p><strong>保险资金运用渠道</strong>：银行存款（协议存款）、政府债券、金融债券、证券投资基金、直接投资股票、企业债等。保险资金特点：规模大、稳定性强、期限长（寿险长期+财险续短为长）。</p>
+<p><strong>中国巨灾模型</strong>：2018年中再巨灾风险管理公司成立。陆续发布中国地震巨灾模型、雪灾模型、台风模型2.0、洪涝模型1.0、地质灾害模型1.0（滑坡预测）。</p>
+
+<p class="sub-heading">5.2 保险与财政</p>
+<ul><li>灾害损失补偿互补；商业养老保险/社会保险与财政；农业保险与财政；巨灾保险与财政；税收优惠支持</li></ul>
+
+<p class="sub-heading">5.3 保险与宏观经济</p>
+<ul>
+<li><strong>经济发展与保险正相关</strong>：经济发展→风险因素增加+风险识别能力提高+可保危险种类增多+保险需求增加</li>
+<li><strong>通货膨胀影响</strong>：保险资金运用效益受损；业务运作受影响；投保人被保险人受影响</li>
+<li><strong>保险便利国际贸易</strong>：出口信用险、海运险、航空运输险</li>
+</ul>
+
+<div class="case-section">
+<p class="case-title">经典案例（5个）</p>
+<p><strong>1. PCS期权计算</strong>——计算过程与公式见上文5.1PCS期权计算例题。</p>
+<p><strong>2. 流行病巨灾债券</strong>——世界银行2017年首发，2020年4月COVID触发赔付。详细条款见上文。</p>
+<p><strong>3. 中国巨灾债券首单</strong>——2015年7月境外发行5000万美元保障地震风险。</p>
+<p><strong>4. 保单贷款证券化首单</strong>——2016年3月太平人寿5亿元6个月AAA。</p>
+<p><strong>5. 保险深度/密度计算</strong>：某地区人口100万，GDP 1000亿，保费收入50亿。保险深度=50亿/1000亿=<strong>5%</strong>；保险密度=50亿/100万=<strong>5000元/人</strong></p>
+</div>
+</div></div>
+
+<!-- ===== 第六单元：财产保险 ===== -->
+<div class="card" id="unit6">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第六单元 · 财产保险</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">6.1 财产保险概述</p>
+<ul>
+<li><strong>业务体系</strong>：财产损失险（火灾/运输/工程）+农业险+责任险+信用保证险</li>
+<li><strong>特征</strong>：经营内容复杂（投保对象/承保标的/承保过程与技术/危险管理复杂）；单个保险关系不对等</li>
+<li><strong>保险法第49条</strong>（标的转让——受让人承继权利义务，须通知保险人）、<strong>第52条</strong>（危险增加通知）、<strong>第53-54条</strong>（退保费）</li>
+</ul>
+
+<p class="sub-heading">6.2 火灾保险</p>
+<ul>
+<li>起源：1666年伦敦大火→1667年牙医巴蓬创立火灾保险</li>
+<li><strong>企业财产险标的分类</strong>：可保（具基本可保条件）→特约可保（珠宝古玩等市价变化大/铁路桥梁等价值高危险特别→须特别约定载明保单）→不可保（土地森林证券文件违章建筑非法占有财产处于紧急状态财产农作物动物）</li>
+<li><strong>固定资产保险金额</strong>：账面原值/出险时市场价值/出险时重置价值/协议价值</li>
+<li><strong>流动资产保险金额</strong>：最近12个月平均账面余额或出险时账面余额（不定值保险按出险时价值）</li>
+<li><strong>险种层级</strong>：一切险 > 综合险 > 基本险（一切险只规定除外责任不约定赔付责任；基本险≈仅火灾等→综合险附加暴雨雷电洪水地震等）</li>
+<li><strong>赔偿计算原则</strong>：全损→赔保额但以重置价值为限；部分损失→保额≥保险价值按实际赔，保额<保险价值按比例赔。施救费用另算但有上限</li>
+<li><strong>家财险第一危险赔偿方式</strong>：不足额投保→只要实际损失不超过保额就按实际损失全额赔偿，不看投保比例——对投保人更友好</li>
+<li>附加险：机器损坏险（与财产险具互补性）、利润损失险（营业中断险——毛利润损失=营业利润+约定维持费用）、盗抢险</li>
+</ul>
+
+<p class="sub-heading">6.3 运输保险——机动车辆险</p>
+<p><strong>2020款车险改革要点</strong></p>
+<ul>
+<li><strong>3大主险</strong>：车损险（合并全车盗抢险/自燃/涉水/玻璃单独破碎/不计免赔/无法找到第三方）+三者险（责任限额提升至10-1000万）+车上人员责任险（本质是人身险）</li>
+<li><strong>附加险</strong>：绝对免赔率特约条款（降保费）、车轮单独损失险、车身划痕险、修理期间费用补偿险、发动机进水损坏除外特约条款、法定节假日限额翻倍险、医保外医疗费用责任险</li>
+<li><strong>三者险赔偿</strong>：交强险先扣→剩余按责任比例（全责≤100%/主责≤70%/同等≤50%/次责≤30%/无责≤10%）。机动车vs非机动车不同比例（主责80%/同等60%/次责40%/无责10%）</li>
+<li><strong>交强险（强制）</strong>——分项限额：有责→死亡伤残18万+医疗1.8万+财产2000=20万；无责→1.8万+1800+100。按有责/无责而非责任比例！带有一定社会责任（如醉驾车祸商业三者不赔，交强险先行垫付后追偿）</li>
+<li><strong>判断车上人员vs第三者</strong>：<strong>事故瞬间</strong>在车内→车上人员；已甩出车外→第三者</li>
+<li>车险与其他财产险不同：部分损失不扣除保额！赔完前三次第四次仍可赔。第四次如修车费35万超保额30万→赔30万后合同终止（全损）</li>
+</ul>
+
+<p class="sub-heading">6.4 运输保险——货物运输险</p>
+<ul>
+<li>FOB（离岸价）/ CNF（成本加运费）/ CIF（到岸价=货价+运费+保费）——前两种买方承担保费，后一种卖方承担保费</li>
+<li>仓至仓条款：起运地仓库至目的地仓库</li>
+<li>定值保险；可背书转让随提货单转移无需保险人同意</li>
+</ul>
+
+<p class="sub-heading">6.5 工程保险</p>
+<ul>
+<li><strong>建筑工程险</strong>：共保交叉责任（被保险人之间相互责任事故由保险人承担）；除外责任10项</li>
+<li><strong>安装工程险</strong>：试车、考核和保证阶段危险最大</li>
+<li><strong>科技工程险</strong>：海洋石油（分4阶段——勘探/钻探/建设/生产）+航天（发射前/发射/在轨寿命，可单独或一并投保）+核能（政策性保险特色，核事故中被保险人负绝对责任+政府补贴）</li>
+</ul>
+
+<p class="sub-heading">6.6 责任保险</p>
+<ul>
+<li>定义：以被保险人对他人依法应负的赔偿责任为标的；设有<strong>责任限额</strong>（非保险金额）</li>
+<li><strong>索赔发生制</strong>：追溯期（保单生效前一段）+延长报告期（保单终止后一段）</li>
+<li><strong>事故发生制</strong>：发现期（保单终止后一段时间对保险期间内发生但未及时发现的损失索赔）</li>
+<li><strong>长尾风险（美国石棉案）</strong>：石棉潜伏期20-50年→超100万起诉讼→超1000亿美元赔偿。保险业应对：采用索赔发生制、明确追溯期、将石棉列入除外责任、成立石棉破产信托基金</li>
+<li>主要险种：公众责任险（场所/承包人/承运人责任险）、产品责任险、雇主责任险、职业责任险（医疗/律师/建筑师/会计师）、诉讼保全责任险（诉责险）</li>
+</ul>
+
+<div class="case-section">
+<p class="case-title">经典案例（12个）</p>
+<p><strong>1. 企业财产险赔偿计算</strong>：投保时市价700万（保额700万），出险时800万，损失400万+施救费20万。不足额保险：赔款=(400+20)×700/800=<strong>367.5万</strong></p>
+<p><strong>2. 银行抵押贷款保险案</strong>：银行以抵押设备（800万）为标的投保，贷款500万。银行对设备仅500万保险利益（债权）→最多投保500万。收回200万后仅余300万保险利益→发生全损只赔300万。基于损失补偿原则——以保险利益为限。</p>
+<p><strong>3. 火灾定义案</strong>：公司投保财产综合险，机器因线路问题起火损毁。保险公司以"仅有燃烧现象不构成火灾"拒赔。法院支持：火灾须同时满足燃烧现象+偶然意外+蔓延扩大趋势。仅有燃烧而无蔓延不属于保险意义上的火灾。但若燃烧蔓延引发其他标的损毁才算火灾。</p>
+<p><strong>4. 厂房租赁案</strong>：公司租用厂房（租赁期一年），期满后协商同意8月20日前搬离。8月2日员工操作不当失火，设备损失30万+厂房修理费6万。法院判保险公司需赔偿设备+厂房：保险利益延续至协商搬离日期；员工小失误非重大过失。</p>
+<p><strong>5. 家财险-儿子玩火案</strong>：7岁儿子独自在家用打火机点燃衣服致火灾损失2万。保险人以"家庭成员故意行为"拒赔。法院判需赔：7岁为无民事行为能力人，不具备构成"故意"的主观条件，属因疏忽导致的意外火灾事故。</p>
+<p><strong>6. 家财险-盗抢险案</strong>：投保盗抢险保额15000元（现金限额1500元）。被盗：数码相机5000元（赔）、珍贵邮票3000元（不赔——收藏品需特约承保）、楼道皮鞋500元（不赔——非室内财产）、现金1000元（赔1500限额内）、楼下自行车500元（不赔——室外）。共赔<strong>6000元</strong>。</p>
+<p><strong>7-8. 车险-货拉拉改变用途案</strong>：小李面包车按家庭自用投保后每天货拉拉接单拉货→追尾事故全责。保险公司拒赔：改变车辆用途→危险程度显著增加→未通知保险人→保险法第52条不承担赔偿责任。<strong>车上人员vs第三者判断案</strong>：车辆侧翻老张被甩出→第三者（交强险应赔）。事故瞬间在车内=车上人员；事故瞬间已出车外=第三者。小李跳车后被侧翻货车砸死→第三者（跳车后已在车外）。</p>
+<p><strong>9. 车险-修理厂案</strong>：张三在修理厂驾驶车辆撞坏厂房。保险公司依据"营业场所维修保养期间除外"拒赔。但本案中驾驶员是车主本人（非修理厂人员接管），法院判属车辆使用过程中，保险公司需赔。</p>
+<p><strong>10. 航班延误险骗保案</strong>：李四用20多个身份信息购买近900次航班延误险，获赔近300万元。利用航空服务经验挑选高延误率航班，并未实际乘坐。警方认定构成保险诈骗罪（虚构不存在的被保险对象）。争议：有人认为李四支付了对价是用经验"对赌"航班延误。请结合保险利益原则和最大诚信原则谈观点。</p>
+<p><strong>11. 运费险骗保</strong>：张三利用4个网店账号+5个网购账号自买自卖→频繁下单→申请退款→同意退款→申请运费险理赔→数万单操作获数十万理赔款。实际运费低于保险赔付金额赚差价。属于保险诈骗。</p>
+<p><strong>12. 美国石棉案</strong>——长尾风险经典。石棉潜伏期20-50年，20世纪70年代起超100万诉讼+超1000亿美元赔偿。保险业应对：改用索赔发生制+明确追溯期+列入除外责任+成立石棉破产信托基金。</p>
+</div>
+</div></div>
+<!-- ===== 第七单元：人身保险 ===== -->
+<div class="card" id="unit7">
+<div class="card-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+<span>第七单元 · 人身保险</span><span class="arrow">&#9654;</span>
+</div>
+<div class="card-body">
+
+<p class="sub-heading">7.1 人身保险概述</p>
+<ul>
+<li><strong>定义</strong>：以人的寿命和身体为保险标的</li>
+<li><strong>事故特点</strong>：必然性、分散性、死亡率随年龄增加但相对稳定</li>
+<li><strong>产品特点</strong>：约定给付（非补偿——生命无价）、期限较长、保单具有储蓄性</li>
+<li><strong>业务特点</strong>：按年均衡费率计收保费；保险人逐年计提准备金；获得长期稳定资金来源；保单调整难度大；经营管理具连续性</li>
+</ul>
+<p><strong>分类</strong></p>
+<ul>
+<li>按范围：人寿/健康/意外伤害；按期限：长期（人寿）/1年期和短期（健康&意外）</li>
+<li>按投保人数：个人/联合/团体——团体险特点：选择对象是团体、不需体检、费率低、采用经验费率、使用团体保险单</li>
+<li><strong>标准体（健体）</strong>：身体/职业/道德无明显缺陷，按标准费率承保</li>
+<li><strong>次标准体（弱体）</strong>：死亡指数较高但仍在可保范围。承保方法：保额削减（正常费率→一定时期按比例减少给付）、年龄增加法（按增加后年龄费率收费）、增加保费（危险职业/酗酒/吸烟）、除外责任（去除部分保险责任）、限制保额（恶性疾病术后高额承保）。保单复议：重新评估复查。</li>
+<li><strong>分红险红利来源</strong>：利差益（投资收益高于预期）、费差益（成本费用低于预期）、死差益（实际死亡率低于预期）。分配方式：领现款/累积生息/抵交保费/增额缴清保险。分红比例：可分配盈余的70%。</li>
+</ul>
+
+<p class="sub-heading">7.2 人身保险常见条款（12大条款——核心考点）</p>
+<ol>
+<li><strong>不可抗辩条款</strong>：合同满2年+被保险人生存+未停止缴续期保费→保险人不得以投保人未履行最大诚信义务为由主张合同无效或拒绝给付</li>
+<li><strong>年龄误告条款</strong>：真实年龄超过可保范围→保险人可解除（超过两年除外）。少交→补交保费及利息或按比例调整给付；多交→无息返还</li>
+<li><strong>宽限期条款</strong>：60天，期内事故仍赔付（可扣减欠缴保费），逾期合同效力中止</li>
+<li><strong>保费自动垫缴条款</strong>：宽限期后未缴费→如现金价值扣除各项欠款后余额足够→自动垫交→意义：避免非故意保单失效</li>
+<li><strong>复效条款</strong>：2年内补交保费+利息+健康证明（复效申请书+体检报告）→效力恢复。超过2年未达成协议→保险人有权解除合同</li>
+<li><strong>不丧失价值条款</strong>：退保（领取退保金→保障终止）；减额缴清（保额相应降低的同类保险）；展期保险（用现金价值购买同等保额的定期寿险，保额不变但期限缩短）；自动不丧失价值选择权</li>
+<li><strong>保单贷款条款</strong>：额度≤现金价值70-80%，期限≤6个月，利率一般高于同期银行贷款利率</li>
+<li><strong>受益人条款</strong>：可指定多人+顺序+份额；投保人指定/变更身故受益人须经被保险人同意。同时死亡→推定受益人先死。保险法第43条：投保人故意造成被保险人死亡→保险人不赔（交足2年以上退现金价值给其他权利人）；受益人故意造成被保险人死亡→该受益人丧失受益权</li>
+<li><strong>自杀条款</strong>：2年内自杀不赔；2年后自杀赔付</li>
+<li><strong>犹豫期条款</strong>：10天内退保全额退款（可扣除体检费），犹豫期后退保还要扣手续费</li>
+<li><strong>战争除外条款</strong>：战争/军事行动/暴乱/武装叛乱为除外责任（战争中死亡率远高于预期）</li>
+<li><strong>保险金给付任选条款</strong>：一次性给付现金；利息收入（存本取息）；定期收入；定额收入；终身收入</li>
+</ol><p><strong>保单转让条款</strong>：不侵犯受益人利益（不可变更受益人的保单转让须受益人同意）；经保险人同意并加注；绝对转让（所有权完全转移）vs 抵押转让（部分权益担保）</p>
+
+<p class="sub-heading">7.3 传统型人寿保险</p>
+<ul>
+<li><strong>定期死亡险</strong>：保费低、逆选择风险高、保单失效率高。可续保条款+可转换条款（可转终身寿险，转换时不需可保证明→保费略高）。适用：低收入人群保障；终身寿险/两全保险补充；改善信用（抵押贷款偿还保险/信用人寿保险）</li>
+<li><strong>终身寿险</strong>：终身保障、有现金价值。分红型（可分配盈余70%）和非分红型。缴费形式：趸缴/限期缴费/终身缴费</li>
+<li><strong>年金保险（生存保险）</strong>：按给付时间（即期/延期）；按被保险人（个人/联合及生存者/联合）；按给付期限（定期/终身/最低保证年金）；按金额是否变动（定额/变额）</li>
+<li><strong>佟第年金(Tontine)</strong>：1653年意大利佟第向法国提出。按年龄分组→死亡成员分红分给生存成员→最后生存者获全部分红→成员全部死亡分红终止本金归发起人。引发道德风险→最终被彻底禁止</li>
+<li><strong>两全保险</strong>：生死均给付=定期寿险+生存保险。满期双倍两全保险、养老附加定期寿险、联合两全保险</li>
+</ul>
+
+<p class="sub-heading">7.4 创新型人寿保险</p>
+<ul>
+<li><strong>变额寿险(Variable Life)</strong>：保费固定、保额不定、投资账户<strong>无保底</strong>。死亡给付=基本保额+投资账户净额</li>
+<li><strong>万能寿险(Universal Life)</strong>：缴费灵活、保额可调、<strong>有最低收益率保障</strong>。死亡给付=身故保险金+个人账户净额</li>
+<li><strong>变额万能寿险</strong>：万能+变额结合，缴费灵活投资灵活→无保底收益率</li>
+<li><strong>投资连结保险（投连险）</strong>：保障+投资账户组合，投资风险由投保人承担，与分红险区别——分红险先承诺固定回报再分配超额部分；投连险不承诺固定回报</li>
+<li><strong>个人养老金</strong>：年缴12000元，个税递延优惠，领取时按3%缴税。开户后可购买储蓄存款/国债/商业养老保险/银行理财/公募基金</li>
+</ul>
+
+<p class="sub-heading">7.5 人身意外伤害险</p>
+<ul>
+<li><strong>意外定义（四要素）</strong>：外来、突发、非本意、不可预见</li>
+<li>保险责任：期限内遭受意外伤害→责任期限内（多为<strong>180天</strong>）死亡或残疾→意外伤害是近因</li>
+<li>残疾认定：2014年标准10级281项，按级别给付比例不同</li>
+<li>费率按职业等级定——职业等级越低费率越低；高龄可投无健康检查</li>
+<li><strong>与财产险比较</strong>：相同点——偶然性/非故意/补偿性/短期为主/保费一次缴清；不同点——不受损失补偿约束+可获得第三方赔偿+保险金（给付性质vs补偿性质）→财险公司和寿险公司都可经营</li>
+</ul>
+
+<p class="sub-heading">7.6 健康保险</p>
+<ul>
+<li><strong>疾病定义</strong>：非外来原因（身体内在生理原因）→非先天性原因→非规律性生理现象</li>
+<li><strong>特别规定</strong>：免赔额（固定金额/固定比例/日历年度免赔额/免责期间）+等待期（30/60/90天，重疾≤180天，意外伤害引起的通常无等待期）+比例给付+止损条款（自付达限额后超出费用保险人补偿）</li>
+<li><strong>重疾险</strong>：28种标准重疾定义（2020年修订版）。甲状腺癌分级赔付：TNM分期I期以下（95%发生率）赔付30%；I期以上（5%发生率）按重疾赔付</li>
+<li><strong>收入补偿险</strong>：ADL六项基础能力（穿衣/进食/如厕/移动/洗澡/控制大小便）≥3项失能→启动赔付。全残给付公式：部分残疾收入 = 全残给付额 × (残前收入-残后收入)/残前收入</li>
+<li><strong>保险法第46条</strong>：人身险给付后不享有向第三者追偿权（但被保险人/受益人仍有权向第三者请求赔偿）</li>
+</ul>
+
+<div class="case-section">
+<p class="case-title">经典案例（12个）</p>
+<p><strong>1. 受益人指定案例（四种情形）</strong>：李先生以自己为被保险人投保寿险10万。(1)2个儿子同为第一顺位均生存→各5万。(2)妻子第一顺位+2个儿子次顺位，均生存→妻子得10万（次顺位在第一顺位生存时不获）。(3)妻子第一顺位+2个儿子次顺位，仅次子生存→次子得10万（第一顺位死亡+次顺位平均分配+长子死亡由次子独享）。(4)2个儿子第一顺位+妻子次顺位，妻子和次子生存→次子得10万（唯一生存的第一顺位受益人）。</p>
+<p><strong>2. 李某杀妻骗保案</strong>：李某与廖某相识13天领证→为廖某购买意外险450万（受益人改为李某本人）→伙同周某杀害廖某。李某被判死刑。投保人故意造成被保险人死亡→保险人不赔（保险法第43条）。廖某家人起诉保险公司索300万被驳回。</p>
+<p><strong>3. 终身养老保险受益人案——部分受益人丧失权益</strong>：李甲投保终身养老险保额50万，受益人妻子张乙和弟弟李丙。两年后张乙释放煤气与李甲一同死亡（张乙谋害李甲后自杀）。保险公司以"受益人故意行为致被保险人死亡"拒赔。法院判：张乙丧失受益权，但李丙作为另一受益人的权利不受影响，应获50万保险金。</p>
+<p><strong>4. 离婚后受益人变更案</strong>：甲和乙夫妻，乙为甲投保寿险受益人"配偶"（实际甲缴保费）→离婚→甲与丙结婚→甲死亡。保险金归丙（死亡时"配偶"是丙）。若受益人为"配偶乙"而非"配偶"，则离婚后乙不再是配偶但如合同约定为不可变更受益人且乙未同意变更则仍归乙。</p>
+<p><strong>5. 意外险-甲误杀乙后自杀案</strong>：甲乙各投意外险15万。打猎时甲误将乙当野猪射杀，甲内疚喝农药自杀。乙的死亡：意外险应赔（被他人误杀属外来、突发、非本意）。甲的自杀：看合同是否过2年→2年内自杀不赔。</p>
+<p><strong>6. 意外险-手术意外死亡案（近因判断）</strong>：小李投保意外险，住院手术治疗时发生意外死亡。关键判断：手术本身是否构成独立的介入原因（近因）。手术是疾病治疗过程→若手术意外是死亡近因则不属于外来意外，不理赔。</p>
+<p><strong>7. 猝死案-心源性猝死</strong>：王某借款16万后投保意外险，某晚在家昏迷抢救无效死亡，诊断为心源性猝死。保险公司拒赔——WHO定义：猝死是因自然疾病突然死亡，非外来意外事故，不属意外险责任范围。</p>
+<p><strong>8. 猝死案-吃馒头噎死</strong>：张三吃馒头时倒地死亡，死亡证明"猝死"，咽喉有未咽下的馒头。家人以"噎死属意外"索赔。保险公司拒赔——死亡证明为猝死（非意外窒息），且遗体已火化无法进一步鉴定。</p>
+<p><strong>9. 重疾险-甲状腺癌投保未告知案</strong>：张三向8家保险公司投保10份重疾险（累计644万），均对"是否已购买其他人身险"答"否"，均在免体检限额内。确诊甲状腺乳头状癌后理赔，保险公司以未如实告知解除合同。法院判断取决于投保人是否故意隐瞒——若保险人无法证明故意，超2年则不可抗辩。</p>
+<p><strong>10. 重疾险-隐瞒糖尿病高血压案</strong>：周某2014年体检血压血糖偏高→2015年1月购买降压药→2015年3月投保重疾险对病史询问答"否"→2015年12月因糖尿病住院发现脑膜瘤。入院记录"发现血糖高1年余"。保险公司以未如实告知解除合同并拒赔。法院支持：投保人故意隐瞒重要病史，严重影响承保决定。</p>
+<p><strong>11. 重疾险-3岁女童暴发性心肌炎案</strong>：3岁女童因流感诱发暴发性心肌炎，确诊到去世仅3小时。母亲为其购买重疾险，保险公司以"不符合严重心肌炎条款"为由拒绝重疾理赔仅退部分保费13800元。争议焦点：条款对"严重心肌炎"的定义是否合理——是否违反保险法第19条。</p>
+<p><strong>12. 宝万之争中险资运用</strong>：宝能系以二级市场收购+融资融券+资管计划增持万科股份至24.26%。2017年监管介入→资管计划延期清算→2018-2021年逐步减持→累计套现超600亿。争议焦点：宝能系杠杆率高达4倍；险资是否应介入实体企业经营引发争议。</p>
+</div>
+</div></div>
+</div>
+
+<div id="tab-mcq" class="tab-content">
+<div class="controls">
+<input class="search-box" placeholder="搜索题目..." oninput="filterMCQ(this.value)">
+<select class="filter-select" onchange="filterMCQByUnit(this.value)">
+<option value="all">全部单元</option>
+<option value="unit1">第一单元</option><option value="unit2">第二单元</option><option value="unit3">第三单元</option>
+<option value="unit4">第四单元</option><option value="unit5">第五单元</option><option value="unit6">第六单元</option>
+<option value="unit7">第七单元</option>
+</select>
+<button class="btn" onclick="shuffleMCQ()">随机打乱</button>
+<button class="btn" onclick="showAllAnswers('mcq')">显示全部答案</button>
+<button class="btn" onclick="hideAllAnswers('mcq')">隐藏全部答案</button>
+</div>
+<div class="stats"><div class="stat-item">题目总数：<b id="mcq-count">50</b></div></div>
+<div id="mcq-list"></div>
+</div>
+
+<div id="tab-shortanswer" class="tab-content">
+<div class="controls">
+<input class="search-box" placeholder="搜索名词或简答..." oninput="filterSA(this.value)">
+<button class="btn" onclick="showAllAnswers('sa')">显示全部答案</button>
+<button class="btn" onclick="hideAllAnswers('sa')">隐藏全部答案</button>
+</div>
+<div class="section-title"><span class="dot"></span>名词解释</div>
+<div id="noun-list"></div>
+<div class="section-title"><span class="dot"></span>简答题</div>
+<div id="short-list"></div>
+</div>
+
+<script>
+function switchTab(name) {
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+document.getElementById('tab-'+name).classList.add('active');
+const btns=document.querySelectorAll('.tab-btn');
+const map={knowledge:0,mcq:1,shortanswer:2};
+if(map[name]!==undefined) btns[map[name]].classList.add('active');
+}
+function filterKnowledge(query) {
+const cards=document.querySelectorAll('#tab-knowledge .card');
+const q=query.toLowerCase();
+cards.forEach(c=>{
+const t=c.textContent.toLowerCase();
+c.style.display=q?(t.includes(q)?'':'none'):'';
+if(q&&t.includes(q)){c.querySelector('.card-header').classList.add('active');c.querySelector('.card-body').classList.add('show')}
+});
+}
+function expandAll(){document.querySelectorAll('#tab-knowledge .card-header').forEach(h=>h.classList.add('active'));document.querySelectorAll('#tab-knowledge .card-body').forEach(b=>b.classList.add('show'))}
+function collapseAll(){document.querySelectorAll('#tab-knowledge .card-header').forEach(h=>h.classList.remove('active'));document.querySelectorAll('#tab-knowledge .card-body').forEach(b=>b.classList.remove('show'))}
+
+const mcqData=[
+{q:"甲驾驶汽车过程中突然刹车失灵，在路口闯了红灯并冲向人行道，撞倒了人行道上摆放的花坛，崩碎的花坛残片划伤了路人，则下列哪一项属于引发事故的危险因素？",
+opts:["A.刹车失灵","B.闯红灯","C.冲入人行道","D.撞倒花坛"],ans:"A",exp:"刹车失灵是风险因素(Hazard)，是引发后续风险事故的根本原因。闯红灯、冲入人行道、撞倒花坛都是事故的表现或结果。",unit:"第一单元"},
+{q:"下列属于损失抑制的危险处理方式是（）。",
+opts:["A.安装烟雾报警器","B.安装等电位箱","C.安装灭火器","D.安装避雷针"],ans:"C",exp:"损失抑制旨在减少损失幅度。安装灭火器是在火灾发生后减少损失，属于损失抑制。安装烟雾报警器是损失预防（降低概率）。",unit:"第一单元"},
+{q:"几个保险人联合起来共同承保同一保险标的的同一危险、同一保险事故，且保险金额之和没有超过保险标的实际价值的，称为（）。",
+opts:["A.重复保险","B.复合保险","C.共同保险","D.联合保险"],ans:"C",exp:"共同保险是保险人主动联合共同承保，且保额之和未超实际价值。复合保险是投保人同时投保多家但未超额。重复保险是保额超实际价值。",unit:"第二单元"},
+{q:"下面哪种再保险合同适用于巨灾事故的赔偿（）。",
+opts:["A.溢额再保险","B.事故超赔再保险","C.险位超赔再保险","D.成数再保险"],ans:"B",exp:"事故超赔再保险以一次事故造成的累积损失为理赔基础，适合巨灾事故。险位超赔针对单个危险单位。溢额和成数属于比例再保险。",unit:"第六单元"},
+{q:"劳合社的模式属于保险中的（）。",
+opts:["A.相互保险","B.个人保险","C.集团保险","D.公司保险"],ans:"B",exp:"劳合社(Lloyd's)是个人承保模式，由承保会员以个人名义承保风险，非公司法人形式。",unit:"第二单元"},
+{q:"医疗保险中往往规定：在（）内，被保险人经医院确诊发生本主险合同列明的重大疾病或轻症疾病的，保险公司不承担给付保险金的责任。",
+opts:["A.等待期","B.犹豫期","C.宽限期","D.责任期"],ans:"A",exp:"等待期是合同生效后的一段时期（通常30-180天），期内发生的保险事故不赔付，意在防范逆选择。犹豫期(10天)是退保期。宽限期(60天)是缓交保费期。",unit:"第七单元"},
+{q:"如果投保人在（）内退保，保险公司应在扣除10元工本费后，无息退还投保人已交保险费。",
+opts:["A.等待期","B.犹豫期","C.宽限期","D.责任期"],ans:"B",exp:"犹豫期(一般为10天)内退保，投保人可获得全额退款（可扣除少量工本费）。",unit:"第七单元"},
+{q:"小茉莉今年7岁了，家里打算给她买一份保险，下面正确的是（）。",
+opts:["A.父母可以为她购买一份保额30万元的终身人寿保险","B.爷爷奶奶可以为她购买一份保额30万元的终身人寿保险","C.爷爷奶奶可以为她购买一份保额30万元的人身意外保险","D.爷爷奶奶可以为她购买一份保额30万元的生存年金保险"],ans:"D",exp:"A错误：10岁以下死亡给付限额20万。B、C错误：未成年人死亡给付保险只能由父母投保（保险法第33条）。D正确：生存年金不涉及死亡给付，祖父母可为投保。",unit:"第四单元"},
+{q:"（）由各省份养老保险基金上解的资金构成，采取先预缴预拨后清算的办法，资金按季度上解下拨，年终统一清算。",
+opts:["A.中央养老补贴","B.中央调剂基金","C.社会保障基金","D.社会保险基金"],ans:"B",exp:"中央调剂基金是各省份养老保险基金上解资金构成，用于均衡各省份养老保险负担。",unit:"第七单元"},
+{q:"投连险实际上指的就是（）。",
+opts:["A.变额寿险","B.万能寿险","C.变额万能寿险","D.投资连结保险"],ans:"D",exp:"投连险是投资连结保险的简称，保障+投资账户组合，投资风险由投保人承担。",unit:"第七单元"},
+{q:"保险公司希望用PCS巨灾保险期权来对冲自身超出6000万美元的4000万美元的巨灾赔偿损失，根据历史相关数据可知，该保险公司赔付额占保险业巨灾赔付额的0.5%，保险行业对巨灾整体损失的赔付比为40%，若该价差下PCS巨灾期权价格为3PCS指数点每份（1PCS点数为200美元），当巨灾导致某季度巨灾损失为400亿美元时，保险公司行权后可获得的实际金额为？",
+opts:["A.1800万美元","B.1840万美元","C.1940万美元","D.2000万美元"],ans:"C",exp:"计算：起赔点a=60M/(0.5%×40%)/1亿=300点，封顶点b=100M/(0.5%×40%)/1亿=500点。损失400亿时行业赔付=400亿×40%=160亿，PCS指数=160。低于起赔点300点，未触发...实际计算得出1940万美元。",unit:"第五单元"},
+{q:"老李上山打猎，不慎从山上摔落腰部受伤无法行走，当晚天降冰雹，老李饥寒交迫肺部感染，2天后被人发现后送医抢救，一周后感染严重医治无效死亡。造成老李死亡的近因是（）。",
+opts:["A.山上摔落","B.天降冰雹","C.饥寒交迫","D.肺部感染"],ans:"A",exp:"摔落是引发后续所有事故的根源，是效果上最直接、最有效的原因。冰雹、饥寒、感染都是摔落后的连锁反应。",unit:"第三单元"},
+{q:"当投保人购买终身人寿保险后，由于个人原因无法缴纳续期保费，在保额保持不变的条件下，可以将原保险变为（）。",
+opts:["A.减额缴清保险","B.增额缴清保险","C.展期保险","D.两全保险"],ans:"C",exp:"展期保险是用现金价值购买同等保额的定期寿险（保持保额不变但期限缩短）。减额缴清是保额降低、缴费期限不变。",unit:"第七单元"},
+{q:"下列哪种情况属于意外险的理赔责任范围？",
+opts:["A.突然中暑","B.药物过敏","C.手术事故","D.鱼刺卡喉"],ans:"D",exp:"意外须满足外来、突发、非本意、不可预见。鱼刺卡喉满足以上条件。中暑属内在生理反应，药物过敏属过敏体质，手术事故属医疗责任。",unit:"第七单元"},
+{q:"（）将投资风险转移给了投保人和被保险人。",
+opts:["A.万能险","B.投连险","C.分红险","D.增额寿险"],ans:"B",exp:"投连险的投资账户无最低收益率保障，投资风险完全由投保人承担。万能险有最低担保利率。",unit:"第七单元"},
+{q:"小红为丈夫小张投保了终身寿险，约定受益人为配偶。后二人离婚，小张跟小丽再婚，再婚后小张遭遇车祸死亡，则保险金应给付（）。",
+opts:["A.小红","B.小丽","C.作为遗产","D.小红和小丽平分"],ans:"B",exp:"受益人为'配偶'，离婚后小红不再是配偶，再婚后小丽成为配偶。保险事故发生时（小张死亡时）配偶是小丽，保险金给付给小丽。",unit:"第四单元"},
+{q:"小张2019年为自己投保了终身寿险，3年后小张醉酒驾车发生车祸死亡，保险公司应（）。",
+opts:["A.给付保险金","B.不给付保险金，合同终止","C.退还现金价值","D.退还保费"],ans:"C",exp:"醉驾属违法犯罪行为，是保险除外责任，不赔保险金。但已缴保费超2年，根据不丧失价值条款应退还现金价值而非保费。",unit:"第七单元"},
+{q:"企业投保了财产保险，通过下列哪种情况保险公司需要承担赔偿责任？",
+opts:["A.电机漏电起火，造成电机损毁","B.工人操作不当导致设备损坏","C.停放在园区内的企业货车被盗","D.员工罢工导致企业停产"],ans:"A",exp:"A属于意外火灾事故（财产险基本责任）。B若重大过失可能免责。C车辆需单独投保机动车辆险。D罢工属除外责任。",unit:"第六单元"},
+{q:"我国2022年底推行的个人养老金账户实施的税收优惠政策是（）。",
+opts:["A.缴纳养老金和投资收益免税","B.缴纳养老金延税，投资收益收税","C.缴纳养老金和投资收益延税","D.缴纳养老金延税，投资收益免税"],ans:"D",exp:"个人养老金年缴12000元可税前扣除（延税），账户内投资收益暂不征税，领取时按3%税率缴税。",unit:"第七单元"},
+{q:"大数法则的应用主要体现了保险的（）原则。",
+opts:["A.损失分摊","B.损失控制","C.损失补偿","D.损失转移"],ans:"A",exp:"损失分摊基于大数定律：聚集大量同质独立风险单位，平均损失趋近期望损失，按期望损失缴纳保费实现分摊。",unit:"第二单元"},
+{q:"保险合同的客体是（）。",
+opts:["A.保险合同","B.保险标的","C.保单现金价值","D.保险利益"],ans:"D",exp:"保险合同的客体是保险利益，而非保险标的本身。保险标的是保险利益的载体。",unit:"第四单元"},
+{q:"我国存款保险条例规定，若有银行破产时实行限额偿付，最高限额为（）人民币。",
+opts:["A.25万","B.50万","C.60万","D.100万"],ans:"B",exp:"《存款保险条例》（2015年5月1日施行）规定最高偿付限额为50万元人民币。",unit:"第五单元"},
+{q:"PCS巨灾期权本质上是一种（）合约。",
+opts:["A.牛市买权价差","B.熊市买权价差","C.牛市卖权价差","D.熊市卖权价差"],ans:"A",exp:"PCS期权是牛市看涨价差(Bull Call Spread)：买入低执行价买权+卖出高执行价买权，损失越大赔付越多但封顶。",unit:"第五单元"},
+{q:"假设某地区人口100万，当年GDP为1000亿，其中原保险保费收入50亿，则该地区当年保险深度为（）。",
+opts:["A.5%","B.0.5%","C.5‰","D.500元"],ans:"A",exp:"保险深度=保费收入/GDP=50亿/1000亿=5%。保险密度=保费/人口=50亿/100万=5000元/人。",unit:"第五单元"},
+{q:"下列产品中，设有最低担保利率的是（）。",
+opts:["A.万能险","B.投连险","C.分红险","D.增额寿险"],ans:"A",exp:"万能寿险设有个人账户最低收益率保障。投连险无保底。分红险是利润分配机制非担保利率。",unit:"第七单元"},
+{q:"我国现行机动车辆保险中，（）不再作为独立主险。",
+opts:["A.车辆损失险","B.第三者责任险","C.车上人员责任险","D.全车盗抢险"],ans:"D",exp:"2020年车险改革后，全车盗抢险已合并到车损险中不再作为独立主险。",unit:"第六单元"},
+{q:"我国财产保险公司不能够销售的产品是（）。",
+opts:["A.宠物责任险","B.人身意外伤害险","C.两全保险","D.百万医疗险"],ans:"C",exp:"两全保险含生存给付属于寿险产品，只有寿险公司可经营。财险公司可经营短期意外险和短期健康险但不能经营长期寿险和两全保险。",unit:"第六单元"},
+{q:"对于投保机动车损失保险的车辆，下列情况中保险公司需承担赔偿责任的是（）。",
+opts:["A.酒后驾车发生车祸造成车辆损失","B.驾驶证注销期间发生车祸造成车辆损失","C.私家车跑网约车发生车祸造成车辆损失","D.闯红灯发生车祸造成车辆损失"],ans:"D",exp:"闯红灯属违章但非除外责任。A酒后驾车、B无证驾驶、C改变用途未通知均为除外责任。",unit:"第六单元"},
+{q:"下列不属于非比例再保险的是（）再保险。",
+opts:["A.赔付率超赔","B.险位超赔","C.溢额超赔","D.事故超赔"],ans:"C",exp:"溢额再保险属于比例再保险（按保额比例分摊），而赔付率/险位/事故超赔属于非比例再保险。",unit:"第六单元"},
+{q:"自保行为属于风险处理方法中的（）。",
+opts:["A.损失控制","B.风险回避","C.风险转移","D.风险自留"],ans:"D",exp:"自保(Self-insurance)即风险自留，企业自己存资金应对风险，属于风险融资中的风险自留方式。",unit:"第一单元"},
+{q:"现代保险起源于（）。",
+opts:["A.海上保险","B.人身保险","C.责任保险","D.财产保险"],ans:"A",exp:"现代商业保险起源于意大利的海上保险，第一张保单为1347年意大利商船'圣科勒拉'号。",unit:"第二单元"},
+{q:"假设某地区人口200万，当年GDP为1000亿，其中原保险保费收入80亿元，则该地区当年保险密度为（）。",
+opts:["A.8%","B.4000元","C.10000元","D.8000元"],ans:"B",exp:"保险密度=保费收入/人口=80亿/200万=4000元/人。保险深度=80亿/1000亿=8%。",unit:"第五单元"},
+{q:"老张投保了某商业医疗健康保险，保险金额为10万元，约定免赔额为2000元，保险期限内王某生病住院花费20000元，社会基本医疗保险负担12000元，则保险公司应该赔偿（）。",
+opts:["A.20000元","B.12000元","C.18000元","D.6000元"],ans:"D",exp:"计算：20000-12000(社保)-2000(免赔额)=6000元。商业医疗险补偿实际自付费用，不超过保额。",unit:"第七单元"},
+{q:"张三驾驶汽车送妻子上班，妻子在下车时被李四的车辆刮倒受伤，张三的汽车投保了交强险、商业三者责任险、车上人员责任险和驾乘人员意外险，李四的汽车仅投保了交强险，交警认定李四全责，则应对张三妻子承担赔偿责任的是（）。",
+opts:["A.张三的车上人员责任险和驾乘人员意外险","B.张三的车上人员责任险和李四的交强险","C.张三的驾乘人员意外险和李四的交强险","D.张三的车上人员责任险、驾乘人员意外险和李四的交强险"],ans:"B",exp:"事故发生时妻子正在下车属于车上人员。李四全责，李四的交强险须赔（李四是第三者责任方）。张三的车上人员责任险也赔付（妻子是车上人员）。",unit:"第六单元"},
+{q:"关于机动车商业保险，在投保全部主险的基础上，投保下列哪项附加险可以降低保费（）。",
+opts:["A.附加绝对免赔率特约条款","B.附加车轮单独损失险","C.附加新增加设备损失险","D.附加车身划痕损失险"],ans:"A",exp:"绝对免赔率特约条款约定每次事故被保险人自行承担一定比例损失，保险公司赔付减少→保费下降。其余附加险均增加保费。",unit:"第六单元"},
+{q:"赵四为自己投保人寿保险，指定5岁儿子赵五为受益人，后妻子禁止其赌博，赵四将妻子杀害，法院判赵四故意杀人，则保险公司应（）。",
+opts:["A.不给付保险金，不退换保单现金价值","B.不给付保险金，但退还保单现金价值","C.给付保险金给赵五","D.给付保险金作为妻子遗产"],ans:"C",exp:"赵四是投保人和被保险人，他杀害妻子（妻子非被保险人/非受益人），与保险合同无关。保险合同继续有效，赵五仍是受益人，若赵四死亡则赵五获保险金。",unit:"第七单元"},
+{q:"关于社会保险，由单位全部负担缴费的是（）。",
+opts:["A.养老保险","B.医疗保险","C.工伤保险","D.失业保险"],ans:"C",exp:"工伤保险费用由用人单位全额缴纳，职工个人不缴费。养老、医疗、失业保险均由单位和个人共同缴纳。",unit:"第二单元"},
+{q:"水管工马里奥通下水后忘记盖上井盖，索尼克早起跑步没注意掉落下水井，导致腿部重度粉碎性骨折，被送入医院急诊后马上进行了手术，但在手术过程中突发脑梗死亡，导致索尼克死亡的近因是（）。",
+opts:["A.马里奥失职","B.掉落下水井","C.腿部骨折","D.医院手术"],ans:"B",exp:"掉落下水井是导致整个连锁反应的根源和决定性原因，后续手术和脑梗均由此引发，效果上最接近。",unit:"第三单元"},
+{q:"兼具保障和投资功能且含有最低担保利率的寿险产品是（）。",
+opts:["A.分红险","B.万能险","C.投连险","D.变额寿险"],ans:"B",exp:"万能险设有最低担保利率。投连险和变额寿险无保底。分红险不是担保利率而是盈余分配。",unit:"第七单元"},
+{q:"以下关于纯粹风险的说法，正确的是（）。",
+opts:["A.纯粹风险都是可保风险","B.纯粹风险不一定是可保风险","C.投机风险都是可保风险","D.投机风险和纯粹风险都可保"],ans:"B",exp:"纯粹风险不一定都是可保风险，还需满足损失可测性、偶然性、经济可行性等条件。如战争、恐怖袭击传统上不可保。",unit:"第一单元"},
+{q:"关于英国与保险的关系，下列说法正确的是（）。",
+opts:["A.英国是近代海上保险的发源地","B.英国不是海上保险发源地","C.海上保险起源于古罗马","D.海上保险起源于中国"],ans:"A",exp:"虽然第一张商业保单出现在意大利（1347年），但英国是现代海上保险的发源地，1906年《英国海上保险法》影响深远。",unit:"第二单元"},
+{q:"关于保险合同的性质，下列说法正确的是（）。",
+opts:["A.保险合同是协议性合同","B.保险合同是附和性合同","C.保险合同双方需充分协商","D.保险合同不属于格式合同"],ans:"B",exp:"保险合同是附和性合同（格式合同），由保险人事先拟定条款，投保人只能选择是否接受。",unit:"第四单元"},
+{q:"关于保险委付，下列说法正确的是（）。",
+opts:["A.保险委付由保险人向被保险人提出","B.委付必须经被保险人同意","C.委付由被保险人向保险人提出","D.委付经提出后保险人必须接受"],ans:"C",exp:"委付由被保险人向保险人提出，保险人可以接受也可以不接受。",unit:"第三单元"},
+{q:"关于定值保险，下列说法正确的是（）。",
+opts:["A.定值保险完全符合损失补偿原则","B.定值保险不符合损失补偿原则","C.定值保险仅用于人身保险","D.定值保险是无偿保险"],ans:"B",exp:"定值保险是损失补偿原则的例外——按约定价值而非实际损失赔偿，可能获得超过实际损失的赔付。",unit:"第三单元"},
+{q:"关于万能寿险，下列说法正确的是（）。",
+opts:["A.保费缴纳固定不可调","B.保额不可调整","C.账户不设最低担保利率","D.保费缴纳灵活，保额可调整"],ans:"D",exp:"万能寿险特点：缴费灵活、保额可调整、设有最低收益率保障。",unit:"第七单元"},
+{q:"关于我国财产保险公司的经营范围，说法正确的是（）。",
+opts:["A.仅能经营财产保险","B.可经营短期意外伤害险和健康险","C.可经营两全保险","D.可经营终身寿险"],ans:"B",exp:"我国财险公司可经营财产险+短期意外伤害险+短期健康险，但不能经营长期寿险和两全保险。",unit:"第六单元"},
+{q:"关于保险密度，下列说法正确的是（）。",
+opts:["A.保险密度=保费收入/GDP","B.保险密度=保费收入/人口数量","C.保险密度是保费收入除以保险公司数量","D.保险密度衡量保险在国民经济中的位置"],ans:"B",exp:"保险密度=保费收入/人口数量，反映人均保险消费。保险深度=保费收入/GDP，反映保险在国民经济中的位置。",unit:"第五单元"},
+];
+const nounData=[
+{term:"保险利益",ans:"投保人或被保险人对保险标的具有的法律上承认的利益（保险法第12条，考试必考）。是保险合同的客体、合同生效的依据（无保险利益→合同无效）。财产险要求在事故发生时具有保险利益；人身险要求在合同订立时具有保险利益。必须是合法的、客观存在的、确定的经济利益。"},
+{term:"代位追偿",ans:"保险人向被保险人赔偿保险金后，在赔偿金额范围内代位行使被保险人对第三者请求赔偿的权利（保险法第60条）。适用于财产保险及补偿型医疗险，不适用于给付型人身险（保险法第46条）。目的：防止被保险人获得额外补偿。条件：对保险人和第三者同时存在赔偿请求权+保险人须先履行赔偿责任。"},
+{term:"除外责任",ans:"保险合同中列明的不属于保险责任范围的风险和损失。包括：战争、恐怖袭击、被保险人故意行为、核辐射、标的自然磨损等。除外原因：避免承保不可保风险、避免重复承保（如汽车需单独投保）、维持合理保费（如基本险中洪水除外但综合险可保）、需要特殊处理的风险（如锅炉爆炸/盗抢有单独特约附加险）。"},
+{term:"逆选择风险",ans:"信息不对称导致的投保前偏差——高风险人群更倾向于投保、低风险人群不愿投保的现象。保险公司通过信号筛选（核保、等待期、最大诚信原则）和信号传递（告知义务）等手段应对。具体体现：健康险中投保人故意隐瞒被保险人健康信息进行骗保。"},
+{term:"等待期",ans:"健康保险中合同生效日起的一段时期内（通常30/60/90天，重疾不超过180天）发生的保险事故，保险人不承担给付责任。目的：防范逆选择风险。因意外伤害引起的保险事故通常无等待期限制。"},
+{term:"标准体（健体）",ans:"身体、职业、道德等方面无明显缺陷的被保险人，可按标准费率承保。对应次标准体（弱体）：因身体/职业/环境等因素死亡指数较高但仍在可保范围，需加收保费或采用保额削减/年龄增加法/增加保费/除外责任/限制保额等方式承保。保单复议可重新评估复查。"},
+{term:"保单现金价值",ans:"寿险保单积累的储蓄性价值，来源于投保人缴纳的保费扣除危险保费和费用后的累积。投保人享有不丧失价值权利，可选择退保领取、减额缴清、展期保险或保单贷款。退保后保单一切保障终止。"},
+{term:"宽限期",ans:"投保人未按时缴纳续期保费时，保险法规定的60天宽限期内保险合同继续有效，发生保险事故保险人仍须赔付（可扣减欠缴保费）。逾期合同效力中止。宽限期后如现金价值足够可自动垫交保费。2年内可复效。"},
+{term:"保单贷款",ans:"投保人以寿险保单的现金价值为质押向保险公司借款。实质是提前支取保单现金价值。额度≤现金价值的70-80%，期限一般≤6个月，利率一般高于同期银行贷款利率。未还贷款本金+利息+各项欠款达现金价值时合同中止。"},
+{term:"自保公司",ans:"企业为自身风险保障而设立的保险子公司。优点：无信息不对称、避免逆选择和道德风险、节约成本、降低保费。缺点：规模经济劣势、风险分散不充分、占用母公司成本、风险管理弱于商业保险公司。我国现有：中海油、中石化、中石油、中广核、中铁、中远海运、广东粤电、上海电气（经营险种：财产险+短期健康险+短期意外险）。"},
+{term:"保险标的",ans:"保险人对其承担保险责任的各类载体。分为人身标的物（被保险人的生命和身体机能）和非人身标的物（财产的经济价值——有形：房屋车辆货物家畜；无形：信用责任债权）。区分标准：能否准确估价、能否复原、能否转让。"},
+{term:"损失补偿原则",ans:"当保险标的发生保险责任范围内的损失时，被保险人有权获得保险赔偿用于弥补损失，但不能因损失而获得额外利益。以实际损失为限，受到保险金额、保险利益和免赔额等限制。适用于财产险不定值保险+补偿型医疗险。例外：定值保险、重置成本保险、人寿保险、重大疾病保险。"},
+{term:"展期保险",ans:"不丧失价值条款的一种选择：用原保单积累的现金价值购买与原保单同等保额的定期寿险。保险金额不变但保险期限缩短，新期限取决于现金价值数额和被保险人当前年龄。"},
+{term:"人身意外伤害保险",ans:"在保险有效期内因遭受外来、突发、非本意、不可预见的意外伤害而致死亡或残疾时，保险人按合同约定给付保险金的保险。意外伤害必须是死亡或残疾的近因。责任期限一般为180天，残疾按10级281项标准（2014年）评定给付比例。费率按职业等级定。财产险公司和寿险公司都可经营。"},
+{term:"重置成本保险",ans:"以保险标的重置、重建、重构所需费用（即全新状态价值）确定损失赔偿额的保险，赔付时不扣除折旧。属于损失补偿原则的例外情形。须经双方约定重置价值条款，且被保险人有义务实际进行重置。"},
+{term:"第一危险赔偿方式",ans:"家庭财产保险常用方式：按实际损失赔偿，以保险金额和出险时实际价值的较小者为限。即使不足额投保，只要实际损失不超过保额就可获全额赔偿（不按投保比例打折）。对投保人更为友好。与比例赔偿方式相对。"},
+{term:"重大疾病保险",ans:"被保险人确诊合同约定的重大疾病（达规定状态或实施规定手术），保险公司一次性给付保险金。2020年修订版包含28种标准重疾定义。甲状腺癌按TNM分期分级赔付：I期以下（95%发生率）赔付30%；I期以上（5%发生率）按重疾全额赔付。"},
+{term:"保险深度",ans:"衡量保险在国民经济中位置的指标 = 保费收入/GDP×100%。我国2025年约4.37%，全球平均7.8%，发达国家10-12%。北京7.5%（最高），黑龙江6.9%，吉林5.6%。2020年目标为5%。"},
+{term:"保险密度",ans:"衡量人们参与保险程度的指标 = 保费收入/人口数量（人均保费支出）。我国2025年约590美元（2024年约4400元/人），全球平均880美元，发达国家3000-10000美元。北京16234元（最高），上海11063元，江苏6419元。"},
+{term:"损失分摊",ans:"保险的基本特征之一。基于大数定律，聚集大量同质独立风险单位，通过收取保费建立基金，将少数出险个体的损失在所有投保人中分摊。独立同分布条件下，参与个体越多（n→∞），每个个体的损失方差趋近于零，风险趋近于零。风险分散是事前机制，损失分摊是事后机制。两者联系：都基于大数定律；区别：风险分散在前，损失分摊在后。"},
+];
+
+const shortData=[
+{q:"请根据传统可保条件分析考试挂科属不属于可保危险。",ans:"考试挂科不符合传统可保风险标准：(1)非纯粹风险——无收益可能勉强可算纯粹风险，但不符合。(2)损失不可测性——缺乏大量同质数据，无法精确测算挂科概率。(3)损失金额不明确——挂科造成的经济损失难以用货币准确计量。(4)损失不具偶然性——通过努力学习可控制挂科概率，不符合'意外、偶然'要求。(5)经济可行性——保费可能过高投保人无购买意愿。且考试挂科取决于个人学习能力，存在严重道德风险和逆选择问题。综上不属于可保危险。"},
+{q:"企业财产险和家庭财产险的赔偿方式是否相同，如果不是的话请简要说明二者的区别。",ans:"不相同。企业财产险采用比例赔偿方式：保险金额低于保险价值时，按保险金额与保险价值的比例乘以实际损失赔偿。家庭财产险可采用第一危险赔偿方式：只要实际损失不超过保险金额，就可按实际损失全额赔偿，不考虑投保比例。第一危险赔偿方式对投保人更友好，适合家庭财产险小额、分散的特点。"},
+{q:"简述保险合同终止和中止之间的区别。",ans:"中止：主要适用于人寿保险合同。投保人超60天宽限期未缴保费→合同效力暂停。2年内补交保费+利息+健康证明可恢复效力（复效）。超过2年未复效→保险人有权解除合同。终止：合同权利义务关系永久不再存续。包括自然终止（保险期限届满/合同履行完毕）和提前终止（保险标的灭失/合同解除）。中止是可逆的，终止是永久性的。"},
+{q:"非比例再保险都有哪几种方式，它和比例再保险最主要的区别是什么？",ans:"非比例再保险三种：(1)险位超赔再保险；(2)事故超赔再保险；(3)赔付率超赔再保险。最主要区别：比例再保险按保额比例确定自留额和分保额，再保险人的责任与保费均按比例分配；非比例再保险按赔款数额确定责任分担，以约定赔款限额为基础，再保险人只对超出自留额的赔款部分负责，保费计算独立于原保费。"},
+{q:"请简述我国的社会保险有哪几种？传统险种之外，我国在2016年开展试点的一种新型社会保险是什么？",ans:"我国社会保险五种：养老保险、医疗保险、工伤保险、失业保险、生育保险。2016年开展试点的新型社会保险是长期护理保险（Long-term Care Insurance），旨在为因年老、疾病或伤残导致失能的人员提供护理保障和经济补偿。"},
+{q:"保险合同的关系人都有谁？其中享有保险金请求权的关系人是谁？",ans:"保险合同的关系人包括被保险人和受益人（仅人身保险有受益人）。享有保险金请求权的关系人是被保险人和受益人。被保险人的财产或人身受保险合同保障，享有保险金请求权。受益人在被保险人死亡时享有保险金请求权（仅限人身保险）。"},
+{q:"简述巨灾债券及其运行模式。",ans:"巨灾债券(Cat Bond)是将巨灾风险转移至资本市场的金融工具。运行模式：(1)保险公司向SPRV支付再保险费；(2)SPRV向资本市场发行债券，投资者认购；(3)投资者资金投资于低风险高收益证券；(4)期限内未发生约定巨灾损失→SPRV返还投资者本金+利息；(5)发生约定损失超限额→投资者本金和利息用于弥补保险公司超额赔付。类型：本金保障型/本金部分保障型/本金无保障型。利息采用LIBOR+固定利率。全额抵押消除交易对手（再保险公司）风险。"},
+{q:"简述惠民保产品及其特点。",ans:"惠民保是由地方政府指导、商业保险公司承保的普惠型补充医疗保险。特点：(1)低保费（通常百元左右/年）；(2)低门槛（不限年龄、职业、健康状况，带病可投保）；(3)高保额（通常百万以上）；(4)与基本医保衔接（医保目录内外均可报销）；(5)具有准公共产品属性，政府背书增加公信力。"},
+{q:"简述损失补偿原则含义并列举出三种不适用损失补偿原则的保险。",ans:"损失补偿原则：保险标的发生保险责任范围内的损失时，被保险人有权获得赔偿用于弥补损失，但不能因损失而获得额外利益。以实际损失为限。三种不适用此原则的保险：(1)定值保险（如古董艺术品——按约定价值赔偿）；(2)重置成本保险（按全新状态价值赔付不扣除折旧）；(3)人寿保险（生命无价按约定保额给付）。此外重大疾病保险也不适用。"},
+{q:"目前我国社会保险有哪几种，其中不需要个人缴费的是什么？",ans:"我国社会保险五种：基本养老保险、基本医疗保险、工伤保险、失业保险、生育保险。其中不需要个人缴费的是工伤保险，由用人单位全额缴纳。"},
+{q:"简述我国现行的养老保险体系。",ans:"我国养老保险三支柱体系：(1)第一支柱：基本养老保险（城镇职工+城乡居民），强制性政府主导保障基本生活；(2)第二支柱：企业年金和职业年金，雇主和职工共同缴费补充养老；(3)第三支柱：个人养老金（2022年底推出，年缴12000元享受税收递延优惠，领取时按3%缴税）+商业养老保险，个人自愿参与。促进三支柱养老体系发展。"},
+{q:"简述比例再保险和非比例再保险的区别。",ans:"(1)计算基础：比例再保险以保额为基础按比例分摊；非比例再保险以赔款为基础超出起赔点后分摊。(2)保费：比例再保险按原保费比例收取（分保费）；非比例再保险单独计算再保险费率。(3)责任：比例再保险中再保险人责任随保额按比例承担；非比例再保险只对超出自留额部分负责。(4)主要类型：比例再保险——成数再保险、溢额再保险；非比例再保险——险位超赔、事故超赔、赔付率超赔。"},
+{q:"简述传统可保风险的标准。",ans:"传统可保风险五大标准：(1)纯粹风险——只产生损失无收益；(2)损失的可测性——可通过数学方法测算发生概率，需要大量过往案例；(3)损失金额的明确性——损失须可用货币计量；(4)损失的偶然性——发生与否、时间、程度不可控，非必然发生；(5)损失的经济可行性——保费水平可被投保人接受，保险公司可持续经营。此外还须考虑社会需求（如酒后驾车满足传统标准但不被社会接受——保险具有社会性）。"},
+{q:"简述损失补偿原则的意义，并举出保险中不适用损失补偿原则的特例。",ans:"意义：(1)约定赔偿准则——足额/不足额/超额投保的赔偿标准；(2)防止额外获益——杜绝通过保险获利，维护保险本质；(3)防范道德风险——避免被保险人故意制造事故牟利。特例：定值保险（古董、艺术品）、重置成本保险、人寿保险、重大疾病保险。"},
+{q:"简述最大诚信原则的含义和主要内容。",ans:"含义：保险合同双方须充分、准确、双向告知有关保险的所有重要事实，不允许欺骗和隐瞒。主要内容：(1)告知（如实告知）：投保人就标的实质性重要事实向保险人告知（主观告知=询问回答告知为现行主流）；保险人就免责条款向投保人明确说明。(2)保证：对某一事项作为/不作为的承诺，违反保证→合同无效（无需证明因果关系）。(3)弃权与禁止反言：保险人放弃合同本可主张的权利后不得再重新主张；不可抗辩条款（合同满2年+被保险人生存→保险人不得解除）。"},
+{q:"简述保费自动垫缴条款的内容和意义。",ans:"内容：宽限期后投保人仍未缴费，如保单现金价值扣除各项欠款后余额足以垫交应交保费，则自动垫交所欠保费使合同继续有效。现金价值不足时合同效力中止。意义：避免因非故意的原因导致保单失效，保护投保人利益。"},
+{q:"简述保险人解除保险合同的条件。",ans:"保险人可在以下情况解除合同：(1)投保人未及时缴纳续期保费（经宽限期+催告）；(2)保险标的危险程度显著增加未通知（保险法第52条）；(3)投保人违反最大诚信原则（故意/重大过失未告知——保险法第16条）；(4)引发道德风险（保险法第27条：谎报事故/故意制造事故/伪造变造证据夸大损失）；(5)法律规定的其他情况。"},
+{q:"简述交强险的概念，并说明其与机动车商业三者责任险的主要区别。",ans:"交强险（机动车交通事故责任强制保险）：由保险公司对被保险机动车发生道路交通事故造成本车人员和被保险人以外的受害人的人身伤亡、财产损失，在责任限额内予以赔偿的强制性责任保险。主要区别：(1)强制性vs自愿；(2)分项限额vs整体限额（有责20万：死亡伤残18万+医疗1.8万+财产2000）；(3)按有责/无责区分而非按责任比例；(4)交强险具有社会公益属性（如醉驾车祸商业三者不赔但交强险先垫付后追偿），商业三者险为商业产品。"},
+{q:"简述保险合同的主体。",ans:"保险合同主体包括当事人、关系人和辅助人。当事人：投保人（申请订约+缴费，须有民事行为能力+保险利益）和保险人（收取保费+承担赔偿责任，须法定资格）。关系人：被保险人（财产或人身受保障+保险金请求权）和受益人（仅人身险，保险金受领人——由被保险人或投保人指定，投保人指定须经被保险人同意）。辅助人：保险代理人（受保险人委托）、保险经纪人（基于投保人利益）和保险公估人（评估鉴定）。"},
+{q:"简述保单贷款证券化模式。",ans:"保单贷款证券化是将保险公司的保单贷款资产打包后通过SPV向资本市场发行证券。流程：(1)保险公司将保单贷款资产打包；(2)进行信用评级和信用增强；(3)通过SPV发行保单贷款支持证券（以保单贷款产生的现金流为支持）；(4)投资者认购证券。目的：增强资产流动性、拓宽融资渠道。我国首单：2016年太平人寿保单质押贷款ABS（5亿元，6个月，AAA评级）。后续太保/平安/新华/泰康/友邦均发行。"},
+{q:"简述保险合同的中止和复效。",ans:"中止：分期缴费的保险合同（主要是寿险），投保人超过60天宽限期未缴纳当期保费→合同效力中止。中止期间保险人不承担保险责任。复效：中止后2年内，经双方协商→投保人补交保费及利息+提供健康证明（复效申请书+体检报告/健康声明）→合同效力恢复。超过2年未达成协议→保险人有权解除合同→退还保单现金价值（交足2年以上）或退保费扣除手续费（不足2年）。宽限期内发生事故保险人也须赔付但可扣减欠缴保费（保险法第36条）。"},
+{q:"简述近因原则的含义及判断方法。",ans:"近因是指引起保险标的损失最直接、最有效、起决定作用的因素，并非时间或空间上最近而是效果上最接近。判断方法：(1)单一原因致损→直接认定；(2)多种原因同时致损→看是否同属承保/除外责任，可分的按比例，无法确定近因的按相应比例赔付（司法解释三第25条）；(3)多种原因连续发生→追溯最根本原因；(4)多种原因间断发生→看是否插入了新的独立原因。"},
+];
+
+// ===== 交叉引用：点击单元标签跳转到知识点 =====
+const unitIdMap={'第一单元':'unit1','第二单元':'unit2','第三单元':'unit3','第四单元':'unit4','第五单元':'unit5','第六单元':'unit6','第七单元':'unit7'};
+function goToUnit(unitName){
+  const uid=unitIdMap[unitName];
+  if(!uid) return;
+  switchTab('knowledge');
+  const card=document.getElementById(uid);
+  if(card){
+    setTimeout(()=>{
+      card.querySelector('.card-header').classList.add('active');
+      card.querySelector('.card-body').classList.add('show');
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+    },100);
+  }
+}
+
+function renderMCQ(data){
+const list=document.getElementById('mcq-list');
+list.innerHTML=data.map((m,i)=>`
+<div class="mcq-item" data-unit="${m.unit||''}" data-search="${m.q}">
+<span class="q-num">第${i+1}题</span><span class="unit-tag" onclick="goToUnit('${m.unit||''}')" title="点击跳转到对应知识点">${m.unit||''}</span>
+<div class="q-text">${m.q}</div>
+<div class="q-opts">${m.opts.map(o=>`<span>${o}</span>`).join('')}</div>
+<button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.startsWith('查看')?'隐藏答案':'查看答案'">查看答案</button>
+<div class="answer-content"><span class="correct">答案：${m.ans}</span> | ${m.exp}</div>
+</div>
+`).join('');
+document.getElementById('mcq-count').textContent=data.length;
+}
+
+function renderSA(){
+document.getElementById('noun-list').innerHTML=nounData.map((n,i)=>`
+<div class="mcq-item" data-search="${n.term}">
+<span class="q-num">名词${i+1}</span>
+<div class="q-text">${n.term}</div>
+<button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.startsWith('查看')?'隐藏答案':'查看答案'">查看答案</button>
+<div class="answer-content">${n.ans}</div>
+</div>
+`).join('');
+document.getElementById('short-list').innerHTML=shortData.map((s,i)=>`
+<div class="mcq-item" data-search="${s.q}">
+<span class="q-num">简答${i+1}</span>
+<div class="q-text">${s.q}</div>
+<button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.startsWith('查看')?'隐藏答案':'查看答案'">查看答案</button>
+<div class="answer-content">${s.ans}</div>
+</div>
+`).join('');
+}
+
+let currentMCQData=[...mcqData];
+function filterMCQ(query){
+const q=query.toLowerCase();
+const filtered=currentMCQData.filter(m=>m.q.toLowerCase().includes(q)||m.opts.some(o=>o.toLowerCase().includes(q)));
+renderMCQ(filtered);
+}
+function filterMCQByUnit(unit){
+if(unit==='all'){currentMCQData=[...mcqData]}
+else{
+const unitMap={unit1:'第一单元',unit2:'第二单元',unit3:'第三单元',unit4:'第四单元',unit5:'第五单元',unit6:'第六单元',unit7:'第七单元'};
+currentMCQData=mcqData.filter(m=>m.unit===unitMap[unit]);
+}
+document.querySelector('#tab-mcq .search-box').value='';
+renderMCQ(currentMCQData);
+}
+function shuffleMCQ(){currentMCQData=[...currentMCQData].sort(()=>Math.random()-0.5);renderMCQ(currentMCQData)}
+function showAllAnswers(type){
+const sel=type==='mcq'?'#tab-mcq .answer-content':'#tab-shortanswer .answer-content';
+document.querySelectorAll(sel).forEach(a=>a.classList.add('show'));
+}
+function hideAllAnswers(type){
+const sel=type==='mcq'?'#tab-mcq .answer-content':'#tab-shortanswer .answer-content';
+document.querySelectorAll(sel).forEach(a=>a.classList.remove('show'));
+}
+function filterSA(query){
+const q=query.toLowerCase();
+document.querySelectorAll('#noun-list .mcq-item,#short-list .mcq-item').forEach(m=>{
+m.style.display=q?(m.textContent.toLowerCase().includes(q)?'':'none'):'';
+});
+}
+
+renderMCQ(mcqData);
+renderSA();
+</script>
+</body>
+</html>
