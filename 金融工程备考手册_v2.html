@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金融工程学 - 零基础备考手册 v2</title>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    line-height: 1.9; color: #1a1a1a; background: #faf8f5; font-size: 15px; -webkit-font-smoothing: antialiased;
+}
+.container {
+    max-width: 880px; margin: 28px auto 56px; padding: 44px 48px; background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04);
+    border-radius: 12px; border: 1px solid #e8e3db;
+}
+h1 { font-size: 1.9em; text-align: center; padding: 40px 0 28px; margin-bottom: 36px; color: #1a1a1a; font-weight: 700; letter-spacing: 0.02em; border-bottom: 2px solid #f0ebe0; line-height: 1.3; }
+h2 { font-size: 1.28em; margin: 52px 0 22px; padding: 14px 20px; background: #faf8f5; color: #1a1a1a; font-weight: 700; border-left: 4px solid #d97706; border-radius: 0 6px 6px 0; letter-spacing: 0.01em; }
+h3 { font-size: 1.1em; margin: 36px 0 16px; padding: 10px 0; color: #1a1a1a; font-weight: 700; border-bottom: 1px solid #f0ebe0; }
+h4 { font-size: 1.02em; margin: 28px 0 12px; color: #5c5548; font-weight: 600; }
+p { margin: 10px 0; color: #1a1a1a; }
+ul { margin: 8px 0 8px 28px; }
+li { margin: 5px 0; color: #1a1a1a; }
+blockquote { background: #faf8f5; border-left: 3px solid #d97706; padding: 12px 18px; margin: 14px 0; border-radius: 0 6px 6px 0; color: #3d382f; font-size: 0.95em; }
+.highlight-box { background: #1e1e1e; color: #e8e8e8; padding: 30px 34px; margin: 32px 0; border-radius: 10px; border: 1px solid #333; box-shadow: 0 2px 16px rgba(0,0,0,0.18); }
+.highlight-box h3, .highlight-box h4 { color: #ffffff; border-bottom-color: #444; margin-top: 0; font-weight: 700; }
+.highlight-box h4 { color: #ffb347; font-size: 1.08em; margin-bottom: 16px; }
+.highlight-box p, .highlight-box li { color: #d8d8d8; line-height: 1.95; }
+.highlight-box strong { color: #ffb347; font-weight: 700; }
+.highlight-box blockquote { background: #2a2a2a; border-left-color: #d97706; color: #c8c8c8; margin: 12px 0; padding: 12px 18px; }
+.highlight-box table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.highlight-box th { background: #333; color: #ffb347; font-weight: 700; padding: 10px 14px; border: 1px solid #444; text-align: left; }
+.highlight-box td { background: #2a2a2a; color: #d8d8d8; border: 1px solid #444; padding: 10px 14px; }
+.highlight-box ul { margin: 8px 0 8px 28px; }
+.highlight-box .code-block { background: #111; }
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; }
+td, th { border: 1px solid #e8e3db; padding: 10px 14px; text-align: left; }
+th { background: #faf8f5; color: #1a1a1a; font-weight: 700; border-bottom: 2px solid #e8e3db; }
+tr:nth-child(even) td { background: #fdfcf9; }
+hr.section-divider { border: none; border-top: 1px solid #e8e3db; margin: 40px 0; }
+pre.code-block { background: #1e1e1e; color: #e8e8e8; padding: 18px 22px; border-radius: 8px; overflow-x: auto; margin: 16px 0; font-size: 0.9em; line-height: 1.7; }
+pre.code-block code { background: none; color: #e8e8e8; padding: 0; }
+code { background: #f5f0e8; padding: 2px 7px; border-radius: 4px; font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 0.9em; color: #b45309; }
+a { color: #2563eb; text-decoration: none; } a:hover { text-decoration: underline; }
+strong { color: #1a1a1a; font-weight: 700; }
+.footer { text-align: center; color: #9a9285; font-size: 0.9em; margin-top: 52px; padding-top: 28px; border-top: 1px solid #f0ebe0; line-height: 1.8; }
+.footer strong { color: #5c5548; }
+@media (max-width: 700px) { .container { margin: 0; padding: 20px 16px; border-radius: 0; box-shadow: none; border: none; } h1 { font-size: 1.5em; padding-top: 20px; } h2 { font-size: 1.15em; margin-top: 32px; } .highlight-box { padding: 20px 18px; margin: 24px 0; } }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>金融工程学 — 零基础备考手册</h1>
+<blockquote>基于张玉新老师课程 PPT、三年习题、七年真题整理</blockquote>
+<blockquote>适用：48 学时 / 计算题 + 案例分析题 / 教材《期货期权入门》(赫尔)</blockquote>
+<hr class="section-divider">
+<h2>目录</h2>
+<ul>
+<li>预备知识：连续复利</li>
+<li>第一章 远期和期货的定价与估值</li>
+<li>第二章 期货的对冲策略</li>
+<li>第三章 利率期货与久期</li>
+<li>第四章 互换</li>
+<li>第五章 期权价格特性与期权平价</li>
+<li>第六章 二叉树模型</li>
+<li>第七章 Black-Scholes 期权定价</li>
+<li>第八章 希腊字母与期权对冲</li>
+<li>附录：公式终极速查卡</li>
+</ul>
+<hr class="section-divider">
+<h2>预备知识：连续复利</h2>
+<h3>0.1 什么是连续复利？</h3>
+<p>想象你把 100 元存入银行，年利率 10%：</p>
+<ul>
+<li><strong>年复利</strong>：一年后得 100 × (1+0.10) = 110 元</li>
+<li><strong>半年复利</strong>：半年后 100×(1+0.10/2)=105，一年后 105×(1+0.10/2)=110.25</li>
+<li><strong>每天复利</strong>：100 × (1+0.10/365)^365 = 110.52</li>
+<li><strong>连续复利</strong>：每时每刻都在利滚利 → 100 × e^0.10 = 110.52</li>
+</ul>
+<blockquote><strong>核心公式</strong>：A 以连续复利 r 投资 T 年 → 终值 = <strong>A × \(e^{rT}\)</strong></blockquote>
+<h3>0.2 为什么要用连续复利？</h3>
+<p>因为求导、积分方便。比如 \(e^{rT}\) 对 T 求导就是 r×\(e^{rT}\)，干净利落。</p>
+<h3>0.3 年计 m 次 ↔ 连续复利换算</h3>
+<table><tr><td>方向</td><td>公式</td><td>例子</td></tr><tr><th>年计 m 次 → 连续复利</th><th>$Rc = m × ln(1 + Rm/m)$</th><th>$年利率 10% 半年复利 → Rc=2×ln(1+0.05)=9.758%$</th></tr><tr><th>连续复利 → 年计 m 次</th><th>$Rm = m × (e^{Rc/m} − 1)$</th><th>连续 10% → 半年复利 = 2×(e^0.05−1)=10.25%</th></tr></table>
+<blockquote><strong>直觉</strong>：连续复利的数字总是比年复利<strong>小一点</strong>。因为连续复利靠"利滚利"追上。</blockquote>
+<hr class="section-divider">
+<h2>第一章 远期和期货的定价与估值</h2>
+<h3>1.1 什么是远期合约？</h3>
+<p>两个人约定：</p>
+<ul>
+<li><strong>今天</strong>签合同</li>
+<li><strong>未来某天</strong>（到期日 T）</li>
+<li>以<strong>今天定好的价格</strong>（交割价格 K）</li>
+<li>买入/卖出某样东西（标的资产）</li>
+</ul>
+<blockquote>例子：我今天跟你签合同，3 个月后以 40.50 元/股买你的股票。不管 3 个月后市场价是 30 还是 50，我都按 40.50 买。</blockquote>
+<h3>1.2 三个核心符号（必须分清！）</h3>
+<table><tr><td>符号</td><td>含义</td><td>打个比方</td></tr><tr><th>K（交割价格）</th><th>合同里写死的成交价</th><th>订婚时说好的彩礼</th></tr><tr><th>F（远期价格）</th><th>现在重新签一份同样的合同会定的价格</th><th>现在市场公允的彩礼行情</th></tr><tr><th>f（远期合约价值）</th><th>你手里的这份合同值多少钱</th><th>你的婚约比市场行情赚了多少/亏了多少</th></tr></table>
+<blockquote><strong>关键</strong>：签合同当天，F=K，f=0。但过了一段时间，市场变了，F≠K，f≠0。</blockquote>
+<h3>1.3 远期定价三大公式（最重要！）</h3>
+<p>定价的核心逻辑是<strong>无套利</strong>：如果有两种方式能在未来得到同样的东西，那它们现在的成本必须相同。否则就有免费午餐（套利）。</p>
+<hr class="section-divider">
+<h4> 类型一：无收益资产（不付红利股票、零息债券）</h4>
+<p><strong>公式</strong>：\[F = S \times e^{rT}\]</p>
+<blockquote>S=40 元，r=5%（连续复利），T=3 个月=0.25 年</blockquote>
+<blockquote>→ F = 40 × \(e^{0.05×0.25}\) = 40 × e^0.0125 = 40 × 1.0126 = <strong>40.50 元</strong></blockquote>
+<p><strong>推导逻辑</strong>（理解它，公式就忘不了）：</p>
+<ul>
+<li>方案 A：现在花 S=40 元买股票，持有 3 个月 → 终值 S\(e^{rT}\)=40.50</li>
+<li>方案 B：签远期合约，3 个月后以 F 元买股票</li>
+<li>无套利要求：两者终值相等，所以 F=S\(e^{rT}\)</li>
+</ul>
+<hr class="section-divider">
+<h4> 类型二：已知现金收益的资产（附息债券）</h4>
+<p><strong>公式</strong>：\[F = (S - I) \times e^{rT}\]</p>
+<p>其中 <strong>I = 所有期间收益的现值之和</strong></p>
+<blockquote>"持有远期合约拿不到中间的利息/红利，所以定价时要把收益扣掉。"</blockquote>
+<blockquote>债券当前价格 S=900 元，1 年期远期。6 个月和 12 个月各付息 40 元。</blockquote>
+<blockquote>6 个月利率 9%，12 个月利率 10%（连续复利）。</blockquote>
+<blockquote><strong>第一步</strong>：算收益的现值 I</blockquote>
+<blockquote>- I = 40×\(e^{−0.09×0.5}\) + 40×\(e^{−0.10×1}\) = 38.24 + 36.16 = <strong>74.40 元</strong></blockquote>
+<blockquote><strong>第二步</strong>：F = (900 − 74.40) × \(e^{0.10×1}\) = 825.60 × 1.1052 = <strong>912.39 元</strong></blockquote>
+<hr class="section-divider">
+<h4> 类型三：已知红利率的资产（股票指数、外汇）</h4>
+<p><strong>公式</strong>：\[F = S \times e^{(r-q)T}\]</p>
+<p>其中 <strong>q = 连续红利率</strong>（或外汇的国外利率 rf）</p>
+<blockquote>"资产以速率 q 持续产生收益，相当于持有成本降低 q"</blockquote>
+<blockquote>S=25 元，r=10%，q=4%，T=6 个月=0.5 年</blockquote>
+<blockquote>→ F = 25 × \(e^{(0.10−0.04)×0.5}\) = 25 × e^0.03 = 25 × 1.0305 = <strong>25.76 元</strong></blockquote>
+<hr class="section-divider">
+<h4> 三类资产公式对照表</h4>
+<table><tr><td>资产类型</td><td>远期价格 F</td><td>实物例子</td></tr><tr><td>无收益</td><td>$F = Se^{rT}$</td><td>不付红利股票、零息债券</td></tr><tr><td>已知现金收益 I</td><td>$F = (S−I)e^{rT}$</td><td>附息债券、付红利股票</td></tr><tr><td>已知红利率 q</td><td>$F = Se^{(r−q)T}$</td><td>股票指数、外汇</td></tr></table>
+<hr class="section-divider">
+<h3>1.4 持有成本视角（Cost of Carry）</h3>
+<p>把三类公式统一成一个：</p>
+<p>\[F = S \times e^{cT}\]</p>
+<p>其中 c = 持有成本 = 融资成本(r) + 存储成本(u) − 收益(q)</p>
+<table><tr><td>资产</td><td>持有成本 c</td></tr><tr><td>无收益资产</td><td>$c = r$</td></tr><tr><td>股票指数</td><td>$c = r − q$</td></tr><tr><td>外汇</td><td>$c = r − rf$</td></tr><tr><td>投资性商品（有存储成本）</td><td>$c = r + u$</td></tr><tr><td>消费性商品（有便利收益 y）</td><td>c ≤ r + u − y（只能给上限）</td></tr></table>
+<hr class="section-divider">
+<h3>1.5 远期合约估值（合约已经签了一段时间后）</h3>
+<p><strong>核心公式</strong>：\[f = (F - K) \times e^{-rT}\]</p>
+<blockquote>"当前远期价格 F 减去当初签的交割价格 K，折现到今天"</blockquote>
+<p><strong>三种资产的直接估值公式</strong>：</p>
+<table><tr><td>资产</td><td>合约价值 f</td></tr><tr><td>无收益</td><td>$f = S − Ke^{−rT}$</td></tr><tr><td>已知收益 I</td><td>$f = S − I − Ke^{−rT}$</td></tr><tr><td>已知红利率 q</td><td>$f = Se^{−qT} − Ke^{−rT}$</td></tr></table>
+<blockquote>签了一年期远期合约 K=45 元买股票。6 个月后股价涨到 S=50，r=10% 不变。</blockquote>
+<blockquote>- 先算当前远期价格：F = 50×\(e^{0.10×0.5}\) = 52.56</blockquote>
+<blockquote>- 再算合约价值：f = (52.56−45)×\(e^{−0.10×0.5}\) = 7.56×0.9512 = <strong>7.19 元</strong></blockquote>
+<blockquote>- 即现在平仓能赚 7.19 元。</blockquote>
+<hr class="section-divider">
+<h3>1.6 期货价格 ≠ 远期价格（何时不同？）</h3>
+<blockquote>大多数情况下两者几乎相同。<strong>但当利率不可预测时</strong>：</blockquote>
+<table><tr><td>情况</td><td>结果</td><td>原因</td></tr><tr><td>标的资产价格与利率正相关</td><td>期货价格 &gt; 远期价格</td><td>期货多头盈利能高利率再投资，亏损能低利率融资</td></tr><tr><td>标的资产价格与利率负相关</td><td>期货价格 &lt; 远期价格</td><td>反之</td></tr><tr><td>短期合约</td><td>两者接近</td><td>时间短影响小</td></tr></table>
+<hr class="section-divider">
+<h3>1.7 期货价格与预期未来现货价格</h3>
+<table><tr><td>系统风险</td><td>关系</td><td>直觉</td></tr><tr><td>正相关（k&gt;r）</td><td>F &lt; E(S_T)</td><td>期货多头承担正系统风险，要求正回报 → 期货价格应上涨</td></tr><tr><td>$零相关（k=r）$</td><td>$F = E(S_T)$</td><td>期货多头长期利润为零</td></tr><tr><td>负相关（k&lt;r）</td><td>F &gt; E(S_T)</td><td>空头获利</td></tr></table>
+<hr class="section-divider">
+<h3>1.8 合成工具：合约方程</h3>
+<p><strong>核心等式</strong>：</p>
+<pre class="code-block"><code>
+外汇远期 = 本币贷款 + 即期买外汇 + 外汇存款
+
+</code></pre>
+<p><strong>更一般地</strong>：</p>
+<pre class="code-block"><code>
+股票多头 = 期货多头 + 无风险债券多头
+
+</code></pre>
+<p>这意味着：</p>
+<ul>
+<li>想买股票但钱不够？→ 买期货 + 买债券</li>
+<li>有股票想变现但不卖？→ 卖期货 → 合成现金</li>
+</ul>
+<hr class="section-divider">
+<h3> 【真题归类 — 远期定价与估值】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 1：2021 真题（2023-2024 A 卷 Q1）— 附息债券远期定价 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>已知标的资产当前价格 S=150，交割价格 K=250，息票率 5.25%（年利率），每期付息 1.25 元。付息时间：距现在 30 天、120 天、210 天。无风险连续复利年利率 r=5.25%。合约期限 250 天。</blockquote>
+<blockquote><strong>(1)</strong> 求远期价格 F。</blockquote>
+<blockquote><strong>(2)</strong> 100 天后，即期价格变为 115 元，求此时远期合约的价值 f。</blockquote>
+<blockquote><strong>(3)</strong> 若此时期货价格为 130 元，求远期合约的价值 f。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>(1) 求远期价格 F</strong></p>
+<p>① 判断资产类型：付息债券 → <strong>已知现金收益型</strong> → 用 F=(S−I)\(e^{rT}\)</p>
+<p>② 算收益现值 I：</p>
+<p>\[I = 1.25e^{-0.0525\times 30/365} + 1.25e^{-0.0525\times 120/365} + 1.25e^{-0.0525\times 210/365}\]</p>
+<p>逐项计算：</p>
+<ul>
+<li>第 1 项：1.25 × \(e^{−0.0525×0.0822}\) = 1.25 × 0.9957 = 1.2446</li>
+<li>第 2 项：1.25 × \(e^{−0.0525×0.3288}\) = 1.25 × 0.9829 = 1.2286</li>
+<li>第 3 项：1.25 × \(e^{−0.0525×0.5753}\) = 1.25 × 0.9703 = 1.2129</li>
+</ul>
+<p>I ≈ 1.2446 + 1.2286 + 1.2129 = <strong>3.69</strong></p>
+<p>③ 套公式：</p>
+<p>\[F = (150 - 3.69)e^{0.0525 \times 250/365} = 146.31 \times 1.0366 = \boxed{151.67}\]</p>
+<p><strong>(2) 100 天后求合约价值 f</strong></p>
+<p>① 先求 100 天时剩余期限 = 250−100 = 150 天</p>
+<p>② 算此时剩余付息的现值（只剩 120 天和 210 天那两笔，距 100 天时分别是 20 天和 110 天）：</p>
+<p>\[I' = 1.25e^{-0.0525\times 20/365} + 1.25e^{-0.0525\times 110/365} = 1.246 + 1.231 = \textbf{2.48}\]</p>
+<p>③ 用估值公式 f=S−I'−K\(e^{−r(T−t)}\)：</p>
+<p>\[f = 115 - 2.48 - 151.67e^{-0.0525\times 150/365}\]</p>
+<p>\[f = 112.52 - 151.67 \times 0.9788 = 112.52 - 148.43 = \boxed{-35.91}\]</p>
+<blockquote>合约价值为<strong>负</strong> → 这份远期合约的多头亏损 35.91 元。</blockquote>
+<p><strong>(3) 价格 130 元时求 f</strong></p>
+<p>直接用 f₁=S₁−F：</p>
+<p>\[f = 130 - 151.67 = \boxed{-21.67}\]</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 2：2019 真题（2021-2022 A 卷 Q1）— 远期外汇套利 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>即期汇率 0.6500 美元/澳元，28 天远期汇率为 0.6600 美元/澳元。澳大利亚利率 3%，美国利率 8%（年利率）。判断是否存在套利机会，如有请描述套利策略并计算利润。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>① 算无套利远期价格（外汇用 F=S\(e^{(r−rf)T}\)）：</p>
+<p>\[F = 0.6500 \times e^{(0.08-0.03) \times 28/365} = 0.6500 \times e^{0.05 \times 0.0767}\]</p>
+<p>\[F = 0.6500 \times 1.00384 = 0.6525\]</p>
+<p>② 对比：市场远期 0.6600 > 理论远期 0.6525 → <strong>远期被高估</strong></p>
+<p>③ 套利策略（远期高估 → 卖远期）：</p>
+<ul>
+<li>借美元 → 按即期汇率买澳元 → 存澳元 → 卖澳元远期</li>
+<li>1 澳元套利利润 = 0.6600 − 0.6525 = 0.0075 美元/澳元</li>
+</ul>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 3：2020-2021 B 卷 — 无收益资产远期 ★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>股价当前 100 元，无风险连续复利 9.25%，6 个月远期。求远期价格。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>\[F = 100 \times e^{0.0925 \times 0.5} = 100 \times 1.0473 = \boxed{104.73}\]</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 4：2021-2022 B 卷 Q1 — 含多利率的附息债券 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>债券价格 99 元，150 天远期。30 天后和 120 天后各付息 1.25 元。30 天利率 6.11%，120 天利率 6.61%，150 天利率 7.02%。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>① 算 I：</p>
+<p>\[I = 1.25e^{-0.0611\times 30/365} + 1.25e^{-0.0661\times 120/365} = 1.244 + 1.224 = 2.468\]</p>
+<p>② F = (99−2.468)\(e^{0.0702×150/365}\) = 96.532×1.0293 = <strong>99.36</strong></p>
+</div>
+<hr class="section-divider">
+<h2>第二章 期货的对冲策略（套期保值）</h2>
+<h3>2.1 套期保值是什么？</h3>
+<blockquote>用期货的盈利来抵消现货的亏损（反之亦然），目标是<strong>风险中性</strong>。</blockquote>
+<h3>2.2 两种基本方向</h3>
+<table><tr><td>类型</td><td>何时用</td><td>操作</td><td>例子</td></tr><tr><th>空头套保（Short Hedge）</th><th>将来要卖资产，怕跌</th><th>卖期货</th><th>石油公司 3 个月后卖油 → 卖空原油期货</th></tr><tr><th>多头套保（Long Hedge）</th><th>将来要买资产，怕涨</th><th>买期货</th><th>铜加工商 5 个月后买铜 → 买入铜期货</th></tr></table>
+<blockquote>口诀：<strong>怕跌卖空，怕涨买多</strong></blockquote>
+<h3>2.3 基差与基差风险</h3>
+<p><strong>基差</strong> = 现货价格 − 期货价格</p>
+<p>\[b = S − F\]</p>
+<blockquote>到期日基差 = 0（期货价格收敛于现货价格）</blockquote>
+<p><strong>基差变化对套保的影响</strong>：</p>
+<table><tr><td>套保类型</td><td>基差扩大 (S涨得多或F涨得少)</td><td>基差缩小</td></tr><tr><td>空头</td><td>改善</td><td>恶化</td></tr><tr><td>多头</td><td>恶化</td><td>改善</td></tr></table>
+<blockquote>记法：空头套保者最终卖现货、平期货 → 基差扩大意味着现货价格相对于期货更贵 → 利好空头。</blockquote>
+<p><strong>套保后的有效价格</strong>：\[S_2 + F_1 − F_2 = \boxed{F_1 + b_2}\]</p>
+<h3>2.4 基差风险的三个来源</h3>
+<ul>
+<li><strong>提前平仓</strong>：没等到期就平仓 → 基差不为零</li>
+<li><strong>便利收益</strong>：消费性资产的便利收益波动大 → 基差更不稳定</li>
+<li><strong>资产不匹配</strong>：套保的资产 ≠ 期货的标的资产</li>
+</ul>
+<h3>2.5 合约选择两原则</h3>
+<ul>
+<li><strong>标的资产</strong>：期货价格与被套保资产相关性越<strong>大</strong>越好</li>
+<li><strong>交割月份</strong>：选交割月在套保到期日<strong>之后</strong>、且尽量<strong>避开</strong>交割月份（交割月价格剧烈波动）</li>
+</ul>
+<h3>2.6 最优套期比率（最小方差法）</h3>
+<p>\[h^* = \rho \times \frac{\sigma_S}{\sigma_F}\]</p>
+<ul>
+<li>ρ：现货与期货价格变动的相关系数</li>
+<li>σ_S：现货价格变动的标准差</li>
+<li>σ_F：期货价格变动的标准差</li>
+</ul>
+<blockquote>如果期货与现货完全相关（ρ=1）且波动相当 → h*=1</blockquote>
+<hr class="section-divider">
+<h3>2.7 股指期货套期保值（重点！）</h3>
+<h4> 基于 Beta 的套保数量</h4>
+<p>\[N^* = \beta \times \frac{V_P}{V_F} = \beta \times \frac{V_P}{F \times m}\]</p>
+<ul>
+<li>β：组合相对于指数的 Beta</li>
+<li>V_P：组合总价值</li>
+<li>F：期货价格</li>
+<li>m：合约乘数（每点多少钱）</li>
+</ul>
+<blockquote>组合 204 万，β=1.5，指数期货 F×m = 200×500=10 万/份</blockquote>
+<blockquote>→ N = 1.5 × 2,040,000 / 100,000 = 30.6 → <strong>卖空 31 份</strong></blockquote>
+<h4> 调整组合 Beta</h4>
+<p>要把 Beta 从 β_P 调整到 β_T：</p>
+<p>\[N = \frac{\beta_T - \beta_P}{\beta_F} \times \frac{V_P}{F \times m}\]</p>
+<blockquote>增加 Beta = 买期货（N>0）；降低 Beta = 卖期货（N<0）</blockquote>
+<hr class="section-divider">
+<h3> 【真题归类 — 股指期货套保】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 5：2019 真题（2021-2022 A 卷 Q3）— 股指期货套保 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>客户持有 1000 万欧元股票组合，β=1.2。MMI 指数当前 270 点，期货每点 500 美元。求应交易的期货合约数量。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>\[N = \beta \times \frac{V_P}{F \times m} = 1.2 \times \frac{10,000,000}{270 \times 500} = 1.2 \times \frac{10,000,000}{135,000}\]</p>
+<p>\[N = 1.2 \times 74.07 = 88.89 \approx \boxed{89 \text{ 份（卖出）}}\]</p>
+<blockquote>因为要保护股票多头 → <strong>卖空</strong>期货。</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 6：2020-2021 A 卷 Q12 — 股指期货套保 ★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>FTSE100 指数 6000 点，组合价值 1000 万英镑，β=1.2。期货合约每点 10 英镑 × 指数，求应交易的合约数量。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>\[N = 1.2 \times \frac{10,000,000}{6000 \times 10} = 1.2 \times \frac{10,000,000}{60,000} = 1.2 \times 166.67 = \boxed{20 \text{ 份}}\]</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 7：习题 2 Q5(2) — DAX 股指期货 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>组合价值 1000 万欧元，β=1.2。DAX30 期货 F=3783，乘数 25 欧元/点。求期货数量。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>\[N = -1.2 \times \frac{10,000,000}{3783 \times 25} = -1.2 \times 105.73 = -126.88 \approx \boxed{-127 \text{ 份（卖出）}}\]</p>
+</div>
+<hr class="section-divider">
+<h3>2.8 合成资产头寸</h3>
+<p><strong>核心等式</strong>：\[\text{股票多头} = \text{期货多头} + \text{无风险债券}\]</p>
+<p><strong>三大应用</strong>：</p>
+<table><tr><td>应用</td><td>操作</td><td>公式</td></tr><tr><td>合成指数基金</td><td>买债券 + 买股指期货</td><td>$N = Ve^{rT}/(mF)$</td></tr><tr><td>现金证券化</td><td>现金 + 买期货 → 获得股票暴露</td><td>同上</td></tr><tr><td>从股票创设现金</td><td>卖期货 + 持有股票 → 获得无风险收益</td><td>$N = Ve^{rT}/(mF)$</td></tr></table>
+<hr class="section-divider">
+<h3>2.9 向前延展的套期保值（Rolling Hedge）</h3>
+<p>当套保期限超过所有可用的期货合约 → 用短期合约不断向前滚动。</p>
+<blockquote>每滚动一次就多一个基差风险来源。</blockquote>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 8：习题 2 Q3 — 股票+债券组合同步调整 ★★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>管理 2.8 亿元组合。当前：股票 1.82 亿（β=1.08），债券 0.98 亿（D=7.2）。</blockquote>
+<blockquote>目标：股票 1.54 亿（β=0.9），债券 1.26 亿（D=6.0）。</blockquote>
+<blockquote>股指期货：价格 129,000 元，β_f=0.97；债券期货：价格 103,000 元，D_f=7.7，β_f=1。</blockquote>
+<blockquote>现金 β=0，D=0。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>股票调整（分两步）</strong>：</p>
+<p>(1) 把 0.28 亿股票转为现金（β=0）：</p>
+<p>\[N_1 = \frac{(0-1.08)}{0.97} \times \frac{28,000,000}{129,000} = -241.67 \approx \boxed{-242 \text{ 份（卖出）}}\]</p>
+<p>(2) 把剩余 1.54 亿股票 β 从 1.08 降到 0.9：</p>
+<p>\[N_2 = \frac{(0.90-1.08)}{0.97} \times \frac{154,000,000}{129,000} = -221.53 \approx \boxed{-222 \text{ 份（卖出）}}\]</p>
+<p><strong>股票合计</strong>：卖出 242+222 = <strong>464 份</strong>。</p>
+<p><strong>债券调整（分两步）</strong>：</p>
+<p>(1) 把 0.28 亿现金转为债券（D=7.2），现金 D=0：</p>
+<p>\[N_3 = \frac{(7.20-0)}{7.70} \times \frac{28,000,000}{103,000} = 254.19 \approx \boxed{+254 \text{ 份（买入）}}\]</p>
+<p>(2) 把 1.26 亿债券 D 从 7.2 降到 6.0：</p>
+<p>\[N_4 = \frac{(6.00-7.20)}{7.70} \times \frac{126,000,000}{103,000} = -190.64 \approx \boxed{-191 \text{ 份（卖出）}}\]</p>
+<p><strong>债券合计</strong>：买入 254−191 = <strong>63 份</strong>。</p>
+</div>
+<hr class="section-divider">
+<h2>第三章 利率期货与久期</h2>
+<h3>3.1 即期利率与远期利率</h3>
+<p><strong>即期利率（Spot Rate）</strong>：从现在开始、持续 n 年的零息债券利率。</p>
+<p><strong>远期利率（Forward Rate）</strong>：由当前即期利率<strong>隐含</strong>的未来某时段利率。</p>
+<p><strong>计算（连续复利）</strong>：</p>
+<p>\[R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}\]</p>
+<blockquote>1 年期即期 10%，2 年期即期 10.5% → 第 2 年远期 = (10.5%×2−10%×1)/1 = <strong>11%</strong></blockquote>
+<blockquote>连续复利下，整个期间的等价利率 = 各段利率的<strong>简单算术平均值</strong>。</blockquote>
+<h3>3.2 三条曲线的关系</h3>
+<table><tr><td>形态</td><td>由高到低排列</td></tr><tr><th>向上倾斜</th><th>远期利率 &gt; 零息收益率 &gt; 附息债券收益率</th></tr><tr><th>向下倾斜</th><th>附息债券收益率 &gt; 零息收益率 &gt; 远期利率</th></tr></table>
+<h3>3.3 期限结构三大理论</h3>
+<table><tr><td>理论</td><td>核心观点</td></tr><tr><td>预期理论</td><td>长期利率 = 预期未来短期利率</td></tr><tr><td>市场分割理论</td><td>短中长利率互不相关</td></tr><tr><td>流动性偏好理论</td><td>远期利率 &gt; 预期即期利率（含风险溢价）</td></tr></table>
+<hr class="section-divider">
+<h3>3.4 久期（Duration）</h3>
+<h4>麦考利久期</h4>
+<p>\[D = \frac{\sum_{t=1}^n t \times PV(CF_t)}{P}\]</p>
+<blockquote>久期就是"平均收款时间"。零息债券的久期 = 到期期限；附息债券的久期 < 到期期限。</blockquote>
+<h4>修正久期</h4>
+<p>\[D_{mod} = \frac{D}{1+y}\]</p>
+<h4>债券价格变动近似</h4>
+<p>\[\frac{\Delta P}{P} \approx -D_{mod} \times \Delta y\]</p>
+<blockquote>修正久期=4，利率上升 0.5% → 价格下降约 4×0.5%=<strong>2%</strong></blockquote>
+<h4>组合久期</h4>
+<p>\[D_P = \sum w_i \times D_i\]（按市值加权）</p>
+<hr class="section-divider">
+<h3>3.5 凸度（Convexity）</h3>
+<p>\[\frac{\Delta P}{P} \approx -D_{mod} \times \Delta y + \frac{1}{2} \times C \times (\Delta y)^2\]</p>
+<blockquote>凸度为正对投资者<strong>有利</strong>：利率涨跌都对价格有正面缓冲。</blockquote>
+<hr class="section-divider">
+<h3>3.6 基于久期的套期保值（利率期货对冲）</h3>
+<p>\[N = \frac{D_P \times V_P}{D_F \times P_F}\]</p>
+<ul>
+<li>D_P：债券组合久期</li>
+<li>D_F：期货标的债券久期</li>
+<li>P_F：期货合约价格</li>
+</ul>
+<p><strong>头寸方向</strong>：</p>
+<ul>
+<li>持有债券多头 + 怕利率涨（债券跌） → <strong>卖空</strong>利率期货</li>
+<li>持有债券空头 + 怕利率跌（债券涨） → <strong>买入</strong>利率期货</li>
+</ul>
+<hr class="section-divider">
+<h3> 【真题归类 — 久期对冲】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 9：习题 1 Q1 — 国债期货套保 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>基金经理用国债期货对 100 万债券组合进行 3 个月对冲。组合久期=4 年。期货价格 122，每张合约标的 1000 元面值。</blockquote>
+<blockquote>(1) CTD 债券久期 9 年，应使用什么期货头寸？</blockquote>
+<blockquote>(2) 1 个月后 CTD 久期变 7 年，如何调整？</blockquote>
+<blockquote>(3) 3 个月后所有利率上涨但长期利率涨得少，对冲效果如何？</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>(1)</strong> \[N = \frac{4 \times 1,000,000}{9 \times 122 \times 1,000} = \frac{4,000,000}{1,098,000} = 3.64 \approx \boxed{4 \text{ 份（卖空）}}\]</p>
+<p><strong>(2)</strong> 久期变 7 年：</p>
+<p>\[N = \frac{4,000,000}{7 \times 122 \times 1,000} = \frac{4,000,000}{854,000} = 4.68 \approx \boxed{5 \text{ 份（卖空）}}\]</p>
+<blockquote>多卖空 1 份。分母（期货久期）变小 → 需要更多合约。</blockquote>
+<p><strong>(3)</strong> 利率期限结构变陡峭 → 长端利率涨得少 → 期货（久期长）价值跌幅小于组合价值跌幅 → 对冲效果<strong>受不利影响</strong>。</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 10：习题 1 Q3 — 养老金久期与凸度 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>养老金 10 亿欧元，75% 政府债(D=4.3)，10% AA 公司债(D=3.5)，12% A 公司债(D=3)，3% BB 公司债(D=2.5)。平均收益率 3.5%（单利）。</blockquote>
+<blockquote>(1) 组合久期？(2) 利率平行上移 125bps 的价值变化？(3) 凸性为正是否有利？</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>(1)</strong> D_P = 0.75×4.3 + 0.10×3.5 + 0.12×3.0 + 0.03×2.5 = 3.225 + 0.35 + 0.36 + 0.075 = <strong>4.01 年</strong></p>
+<p><strong>(2)</strong> D_mod = 4.01 / 1.035 = <strong>3.8744</strong></p>
+<p>ΔV ≈ −3.8744 × 1.25% × 10 亿 = <strong>−48,430,000 欧元</strong></p>
+<p><strong>(3)</strong>  凸性为正总是<strong>有利</strong>：利率涨跌都获得正面缓冲。</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 11：2021-2022 A 卷 Q4 — 债券组合久期调整 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>债券组合 600 万，久期 8.2 年。期货合约久期 7.6 年，价格 108-15（即 108.46875）。求需要多少合约。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>\[N = \frac{8.2 \times 6,000,000}{7.6 \times 108.46875 \times 1,000} = \frac{49,200,000}{824,362.5} = 59.68 \approx \boxed{60 \text{ 份}}\]</p>
+</div>
+<hr class="section-divider">
+<h2>第四章 互换（Swaps）</h2>
+<h3>4.1 什么是互换？</h3>
+<blockquote>双方约定在未来<strong>交换</strong>两笔不同特征的现金流。本质上是一系列远期合约的组合。</blockquote>
+<h3>4.2 利率互换机制</h3>
+<ul>
+<li>固定利率 ↔ 浮动利率（LIBOR）</li>
+<li><strong>收到浮动利率 = 多头，收到固定利率 = 空头</strong></li>
+<li>期初不需要任何现金支付，互换价值为零</li>
+</ul>
+<p><strong>互换利率（Swap Rate）</strong>：使互换初始价值为零的固定利率。</p>
+<p><strong>互换价差（Swap Spread）</strong> = 互换利率 − 同期限国债收益率</p>
+<blockquote>互换价差反映市场参与者承受利率波动风险的意愿。</blockquote>
+<h3>4.3 利率互换估值 — 两种方法</h3>
+<h4>方法一：债券组合分解（水平分解）</h4>
+<p>\[\text{互换多头} = \text{持有浮动债券} − \text{持有固定债券}\]</p>
+<p>\[\text{互换价值} = B_{float} - B_{fixed}\]</p>
+<blockquote><strong>关键性质</strong>：浮动利率债券在期初和每个利息重置日价值 = 面值。</blockquote>
+<blockquote>→ 只需计算固定债券的现值。</blockquote>
+<h4>方法二：FRA 组合分解（纵向分解）</h4>
+<blockquote>互换 = 一系列远期利率协议的组合。每期用远期利率估值后加总。</blockquote>
+<hr class="section-divider">
+<h3> 【真题归类 — 互换定价与违约】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 12：习题 1 Q2 — 互换利率反推 LIBOR ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>1 年期 LIBOR=10%。2 年和 3 年互换利率（年复利）分别为 11% 和 12%。求 2 年和 3 年 LIBOR。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>这里的互换利率 = 用来与 LIBOR 交换的固定利率。面值=100。</p>
+<p><strong>求 2 年 LIBOR (R₂)</strong>：</p>
+<p>\[11e^{-0.10} + 111e^{-2R_2} = 100\]</p>
+<p>\[9.95 + 111e^{-2R_2} = 100\]</p>
+<p>\[e^{-2R_2} = 0.81126\]</p>
+<p>\[R_2 = \boxed{10.46\%}\]</p>
+<p><strong>求 3 年 LIBOR (R₃)</strong>：</p>
+<p>\[12e^{-0.10} + 12e^{-2\times0.1046} + 112e^{-3R_3} = 100\]</p>
+<p>\[R_3 = \boxed{11.46\%}\]</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 13：2020-2021 A 卷 Q9 — 货币互换估值 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>金融机构收 JPY 2%（名义本金 350,000 万），支付 USD 4.5%（名义本金 12,000 万）。汇率 120 JPY/USD。美元利率 3%，日元利率 0.5%。剩余 2 年。求互换价值。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>JPY 侧现金流现值</strong>：</p>
+<ul>
+<li>利息：350,000×2% = 7,000 万/年；本金：350,000 万</li>
+<li>PV = 7,000\(e^{−0.005×1}\) + 357,000\(e^{−0.005×2}\) ≈ 360,413 万 JPY</li>
+</ul>
+<p><strong>USD 侧现金流现值</strong>：</p>
+<ul>
+<li>利息：12,000×4.5% = 540 万/年；本金：12,000 万</li>
+<li>PV = 540\(e^{−0.03×1}\) + 12,540\(e^{−0.03×2}\) ≈ 12,334 万 USD</li>
+</ul>
+<p><strong>互换价值（本币 USD）</strong>：</p>
+<p>= 360,413 / 120 − 12,334 = 3,003.4 − 12,334 = <strong>−9,330.6 万 USD</strong></p>
+<blockquote>互换价值为负 → 金融机构在这个互换中有浮亏（JPY 贬值）。</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 14：2021-2022 A 卷 / 习题 1 附加 — 互换违约损失 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>金融机构与公司签 5 年期利率互换，收固定 10%，付 6 个月 LIBOR，名义本金 1000 万美元。第 3 年末公司违约，此时所有期限利率为 8%（半年复利，连续复利等价于约 7.84%）。求金融机构的违约损失。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>① 即期损失（第 3 年末应付差额）：</p>
+<p>\[\text{净收入/半年} = 1000 \times 0.5 \times (10\% - 8\%) = 10 \text{ 万美元}\]</p>
+<p>② 剩余 2 年共 4 期，每次净收入 10 万（半年的利息差额），按半年 4% 贴现：</p>
+<p>\[PV = \frac{10}{1.04} + \frac{10}{1.04^2} + \frac{10}{1.04^3} + \frac{10}{1.04^4}\]</p>
+<p>\[PV = 9.615 + 9.245 + 8.889 + 8.547 \approx 36.3 \text{ 万美元}\]</p>
+<p>加上即期应收差额（第 3 年末还有一笔应付）：</p>
+<p>\[5 + 36.3 = \boxed{41.3 \text{ 万美元}}\]</p>
+<blockquote>违约损失 = 剩余各期净收入的现值之和。如果利率下降（8% < 10%），固定利率收取方有正价值 → 违约带来损失。</blockquote>
+</div>
+<hr class="section-divider">
+<h2>第五章 期权价格特性与期权平价关系</h2>
+<h3>5.1 期权是什么？</h3>
+<blockquote><strong>期权</strong> = 持有者有权利但没有义务做某事。买方付<strong>期权费</strong>获得权利。</blockquote>
+<blockquote><strong>远期/期货</strong> = 双方都有义务 → 签合约时不需要付钱。</blockquote>
+<table><tr><td>类型</td><td>持有者权利</td><td>最大损失</td><td>最大收益</td></tr><tr><td>Call 多头</td><td>有权以 X 买入</td><td>期权费</td><td>无限（股价涨到天上去）</td></tr><tr><td>Call 空头</td><td>有义务卖出</td><td>无限</td><td>期权费</td></tr><tr><td>Put 多头</td><td>有权以 X 卖出</td><td>期权费</td><td>X−期权费（股价跌到零）</td></tr><tr><td>Put 空头</td><td>有义务买入</td><td>X−期权费</td><td>期权费</td></tr></table>
+<p><strong>内涵价值（Intrinsic Value）</strong>：</p>
+<ul>
+<li>Call：max(S − X, 0)  → "现在执行能赚多少"</li>
+<li>Put：max(X − S, 0)</li>
+</ul>
+<p><strong>状态判断</strong>：</p>
+<ul>
+<li><strong>实值（ITM）</strong>：S>X（Call）/ S<X（Put）→ 执行就有利润</li>
+<li><strong>平值（ATM）</strong>：S≈X → 执行不赚不亏</li>
+<li><strong>虚值（OTM）</strong>：S<X（Call）/ S>X（Put）→ 不会执行</li>
+</ul>
+<h3>5.2 影响期权价格的六因素（必背！）</h3>
+<table><tr><td>因素 ↑</td><td>Call 价格</td><td>Put 价格</td><td>直觉解释</td></tr><tr><td>S（股价）</td><td>↑</td><td>↓</td><td>Call 是&quot;低价买&quot;的权利 → 股价越高越值钱</td></tr><tr><td>X（执行价）</td><td>↓</td><td>↑</td><td>Call：X 越低越好（买入价便宜）；Put：X 越高越好（卖出价高）</td></tr><tr><td>T（到期时间）</td><td>↑</td><td>↑</td><td>时间越长，发生有利变动的机会越多</td></tr><tr><td>$σ（波动率）$</td><td>↑</td><td>↑</td><td>波动越大，&quot;意外惊喜&quot;的可能越大</td></tr><tr><td>r（利率）</td><td>↑</td><td>↓</td><td>Call 是延迟付款 → 高利率省资金成本；Put 是延迟收款 → 不利</td></tr><tr><td>D（红利）</td><td>↓</td><td>↑</td><td>红利使股价下跌 → Call 受损、Put 受益</td></tr></table>
+<blockquote>记忆技巧：除了 r 和 D 对 Call/Put 方向相反，其余四个方向一致。</blockquote>
+<h3>5.3 期权价格上下限</h3>
+<p><strong>看涨期权</strong>：</p>
+<ul>
+<li>上限：c ≤ S（期权的价格不能超过股票本身，否则直接买股票更划算）</li>
+<li>下限：c ≥ max(S − X\(e^{−rT}\), 0)</li>
+</ul>
+<p><strong>看跌期权</strong>：</p>
+<ul>
+<li>上限：p ≤ X（Put 的最大收益就是 X，所以价格不能超过 X）</li>
+<li>下限：p ≥ max(X\(e^{−rT}\) − S, 0)</li>
+</ul>
+<h3>5.4 期权平价关系（Put-Call Parity）</h3>
+<p>这是最重要的期权关系式！考了无数次！</p>
+<h4>无红利：</h4>
+<p>\[\boxed{c + Xe^{-rT} = p + S}\]</p>
+<p><strong>理解方式</strong>：</p>
+<ul>
+<li>左边 = 买一个 Call + 存一笔钱（到期刚好是 X 元）</li>
+<li>右边 = 买一个 Put + 买一股股票</li>
+<li><strong>到期日</strong>：左边和右边的价值<strong>完全一样</strong>（都是 max(S_T, X)）</li>
+<li>→ 今天两者的价格必须相等，否则就有套利机会！</li>
+</ul>
+<h4>有红利（D = 红利现值）：</h4>
+<p>\[c + D + Xe^{-rT} = p + S\]</p>
+<hr class="section-divider">
+<h3> 【真题归类 — 期权平价套利】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 15：习题 2 Q2 — Biogen 期权套利 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>Biogen 股价 50 美元，r=4%（连续复利），不分红。K=55 的 Put 价格 8.25 美元。每份合约对应 10 股。卖出 100 份 Put。构造无风险套利，求利润。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>① 先用 Put-Call Parity 验证是否被高估。已知 K=55 Call 价格 4.81：</p>
+<p>\[p_{theory} = c + Xe^{-rT} - S = 4.81 + 55e^{-0.04} - 50\]</p>
+<p>\[p_{theory} = 4.81 + 55 \times 0.96079 - 50 = 4.81 + 52.84 - 50 = 7.65\]</p>
+<p>市场 p=8.25 > 7.65 → <strong>确实被高估</strong>！</p>
+<p>② 套利原则：<strong>卖高估的，买低估的</strong>。</p>
+<p>Put 被高估 → 卖 Put。同时构造相反头寸锁定利润：</p>
+<table><tr><td>操作</td><td>计算</td><td>现金流(美元)</td></tr><tr><th>卖出 100 份 Put</th><th>100 × 10 × 8.25</th><th>+8,250</th></tr><tr><td>买入 100 份 Call</td><td>100 × 10 × 4.81</td><td>−4,810</td></tr><tr><td>卖出 1000 股股票</td><td>1000 × 50</td><td>+50,000</td></tr><tr><td>无风险贷出（面值 55,000）</td><td>$−55,000 × e^{−0.04}$</td><td>−52,843.50</td></tr><tr><th>套利利润</th><th>四笔现金流之和</th><th>+596.50</th></tr></table>
+<blockquote>到期无论股价多少，四笔交易综合收益为 0，但今天你净赚 596.50 美元 → 无风险套利。</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 16：习题 2 Q6(2) — Nikkei 期权平价 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>S=16,000, r=2%, T=0.25。K=16,000 Call 价格 677.146 日元。求 Put 价格 P。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>\[P = C - S + Xe^{-rT}\]</p>
+<p>\[P = 677.146 - 16,000 + 16,000e^{-0.02\times0.25}\]</p>
+<p>\[P = 677.146 - 16,000 + 15,920.20 = \boxed{597.35 \text{ 日元}}\]</p>
+</div>
+<hr class="section-divider">
+<h3>5.5 提前执行规则</h3>
+<table><tr><td></td><td>无红利 Call</td><td>无红利 Put</td><td>有红利 Call</td><td>有红利 Put</td></tr><tr><td>是否提前执行</td><td>不执行</td><td>可能</td><td>除息日前可能</td><td>可能</td></tr><tr><td>美式 vs 欧式</td><td>等价</td><td>P &gt; p</td><td>C &gt; c</td><td>P &gt; p</td></tr></table>
+<blockquote><strong>直觉</strong>：</blockquote>
+<blockquote>- Call 提前执行 → 早付 X → 损失 X 的利息 → <strong>不划算</strong>（无红利时）</blockquote>
+<blockquote>- Put 提前执行 → 早收 X → 赚 X 的利息 → <strong>可能划算</strong></blockquote>
+<blockquote>- 有红利时，Call 在除息日前执行 → 拿到红利 → 可能合算</blockquote>
+<hr class="section-divider">
+<h2>第六章 二叉树模型（Binomial Tree）</h2>
+<h3>6.1 核心思想</h3>
+<blockquote>将未来股价简化为两种可能：<strong>上涨(u 倍)</strong> 或 <strong>下跌(d 倍)</strong>。然后从到期日一层层往回推算期权价格。</blockquote>
+<h3>6.2 单步二叉树</h3>
+<p><strong>参数设定</strong>：</p>
+<ul>
+<li>u = 上涨倍数（通常 u = \(e^{σ√Δt}\)）</li>
+<li>d = 下跌倍数（通常 d = 1/u）</li>
+<li>p = 风险中性上涨概率</li>
+</ul>
+<p>\[p = \frac{e^{r\Delta t} - d}{u - d}\]</p>
+<p><strong>期权定价</strong>：</p>
+<p>\[f = e^{-r\Delta t}[p \times f_u + (1-p) \times f_d]\]</p>
+<blockquote>S=20, u=1.1 → S_u=22, d=0.9 → S_d=18, r=12%, K=21</blockquote>
+<blockquote>→ p = (e^0.12−0.9)/(1.1−0.9) = (1.1275−0.9)/0.2 = 0.6523</blockquote>
+<blockquote>→ f_u=max(22−21,0)=1, f_d=max(18−21,0)=0</blockquote>
+<blockquote>→ f = \(e^{−0.12}\)×(0.6523×1+0.3477×0) = 0.8869×0.6523 = <strong>0.58</strong></blockquote>
+<h3>6.3 两步二叉树（考试常考）</h3>
+<p><strong>步骤</strong>：</p>
+<ul>
+<li>算期末各节点的期权价值（f_uu, f_ud, f_dd）</li>
+<li>用单步公式从期末反推到第一步（f_u, f_d）</li>
+<li>再用单步公式从第一步反推到现在（f）</li>
+</ul>
+<h3>6.4 重组树 vs 非重组树</h3>
+<table><tr><td></td><td>重组树</td><td>非重组树</td></tr><tr><td>关键</td><td>$u×d = d×u（上下路径可交换）$</td><td>u×d ≠ d×u</td></tr><tr><td>N 步节点数</td><td>n+1 个（计算可行）</td><td>2^n 个（指数爆炸）</td></tr></table>
+<hr class="section-divider">
+<h3> 【真题归类 — 二叉树定价】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 17：习题 1 Q4 — 两步二叉树（收益=S_T²）★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>股价路径：S₀=10 → S_u=14 → S_uu=16, S_ud=14.2；S_d=8 → S_dd=8.4。</blockquote>
+<blockquote>r=10%（连续复利），Δt=1 年，每步之间利率也按 10%。期权收益为 S_T²。</blockquote>
+<blockquote>求期权价格。</blockquote>
+<p><strong>价格树图示</strong>：</p>
+</div>
+<pre class="code-block"><code>
+         S_uu = 16
+
+        /
+
+   S_u = 14
+
+  /       \
+
+S=10       S_ud = 14.2
+
+  \       /
+
+   S_d = 8
+
+        \
+
+         S_dd = 8.4
+
+</code></pre>
+<p><strong>详细解析</strong>：</p>
+<p>① 风险中性概率（从任一步到下一步，Δt=1）：</p>
+<p>\[p = \frac{e^{0.10} - 0.8}{1.4 - 0.8} = \frac{1.1052 - 0.8}{0.6} = 0.5087\]</p>
+<p>② 期末期权价值（c = S_T²）：</p>
+<ul>
+<li>c_uu = 16² = <strong>256</strong></li>
+<li>c_ud = 14.2² = <strong>201.64</strong></li>
+<li>c_dd = 8.4² = <strong>70.56</strong></li>
+</ul>
+<p>③ 第 1 步（从期末反推）：</p>
+<p>\[c_u = e^{-0.10}[0.5087 \times 256 + 0.4913 \times 201.64] = 0.9048 \times 229.3 = \mathbf{207.43}\]</p>
+<p>\[c_d = e^{-0.10}[0.5087 \times 201.64 + 0.4913 \times 70.56] = 0.9048 \times 137.4 = \mathbf{124.32}\]</p>
+<p>④ 第 0 步（从现在反推）：</p>
+<p>\[c = e^{-0.10}[0.5087 \times 207.43 + 0.4913 \times 124.32] = 0.9048 \times 166.6 = \boxed{150.86}\]</p>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 18：真题 — 两步二叉树 Put（美式）★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>S=52, u=1.15, d=0.8（注意：非标准参数！需验证重组性）, r=6%, K=50, T=2 步, Δt=0.25。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>① p = (\(e^{0.06×0.25}\)−0.8)/(1.15−0.8) = (1.0151−0.8)/0.35 = <strong>0.6146</strong></p>
+<p>② 期末股价：</p>
+<ul>
+<li>S_uu = 52×1.15² = 68.77, p_uu = max(50−68.77, 0) = <strong>0</strong></li>
+<li>S_ud = 52×1.15×0.8 = 47.84, p_ud = max(50−47.84, 0) = <strong>2.16</strong></li>
+<li>S_dd = 52×0.8² = 33.28, p_dd = max(50−33.28, 0) = <strong>16.72</strong></li>
+</ul>
+<p>③ 反向递推（欧式）：</p>
+<ul>
+<li>p_u = \(e^{−0.015}\)×(0.6146×0 + 0.3854×2.16) = 0.9851×0.833 = <strong>0.82</strong></li>
+<li>p_d = \(e^{−0.015}\)×(0.6146×2.16 + 0.3854×16.72) = 0.9851×7.76 = <strong>7.64</strong></li>
+<li>p_0 = \(e^{−0.015}\)×(0.6146×0.82 + 0.3854×7.64) = 0.9851×3.45 = <strong>3.40</strong></li>
+</ul>
+<p>④ 如果是美式 Put，还需要在每个节点比较"立即执行"vs"继续持有"：</p>
+<ul>
+<li>立即执行 p_u：max(50−59.8, 0) = 0 < 0.82 → 不执行</li>
+<li>立即执行 p_d：max(50−41.6, 0) = 8.4 > 7.64 → <strong>提前执行更优</strong></li>
+<li>→ 美式 Put 价值 > 欧式 Put 价值</li>
+</ul>
+</div>
+<hr class="section-divider">
+<h2>第七章 Black-Scholes 期权定价公式</h2>
+<h3>7.1 背景：股价如何运动？</h3>
+<p>股价不是直线运动，而是像花粉在水中那样随机漂移。数学上描述为：</p>
+<p>\[dS = \mu S dt + \sigma S dz\]</p>
+<ul>
+<li>第一项 μSdt：<strong>漂移项</strong> — 股票的预期增长（趋势）</li>
+<li>第二项 σSdz：<strong>扩散项</strong> — 围绕趋势的随机波动</li>
+</ul>
+<blockquote>这意味着：<strong>ln S_T 服从正态分布</strong>，均值为 ln S_0 + (μ−σ²/2)T，方差为 σ²T。</blockquote>
+<blockquote><strong>σ²/2 哪来的？</strong> 来自伊藤引理：d(ln S) = (μ−σ²/2)dt + σdz。因为 ln 是凹函数，波动率会"压低"对数收益率的均值。</blockquote>
+<h3>7.2 不确定性 ∝ √T</h3>
+<blockquote>股票价格的不确定性与时间的<strong>平方根</strong>成正比。</blockquote>
+<table><tr><td>时间</td><td>方差</td><td>标准差</td></tr><tr><td>1 年</td><td>$σ²$</td><td>$σ$</td></tr><tr><td>2 年</td><td>$2σ²$</td><td>$σ√2$</td></tr><tr><td>T 年</td><td>$Tσ²$</td><td>$σ√T$</td></tr></table>
+<h3>7.3 Black-Scholes 公式（考试必背！）</h3>
+<h4>欧式看涨期权：</h4>
+<p>\[\boxed{c = S_0 N(d_1) - K e^{-rT} N(d_2)}\]</p>
+<h4>欧式看跌期权（由 Put-Call Parity 可得）：</h4>
+<p>\[\boxed{p = K e^{-rT} N(-d_2) - S_0 N(-d_1)}\]</p>
+<h4>d₁ 和 d₂ 的计算：</h4>
+<p>\[\boxed{d_1 = \frac{\ln(S_0/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}}\]</p>
+<p>\[\boxed{d_2 = d_1 - \sigma\sqrt{T}}\]</p>
+<h3>7.4 公式的直观理解</h3>
+<p>把 Call 公式看成两部分：</p>
+<p>\[c = \underbrace{S_0 N(d_1)}_{\text{持有股票的现价}} - \underbrace{K e^{-rT} N(d_2)}_{\text{执行价的现值}}\]</p>
+<ul>
+<li><strong>N(d₂)</strong> = 期权在风险中性世界中被执行的概率</li>
+<li><strong>N(d₁)</strong> = 一个比 N(d₂) 稍大的数（因为 d₁ = d₂ + σ√T），与 Delta 有关</li>
+<li>公式本质：<strong>预期收益 − 预期成本</strong></li>
+</ul>
+<hr class="section-divider">
+<h3> 【真题归类 — Black-Scholes 计算】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 19：习题 2 Q1(a) — B-S 反推股价 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>2007-7-15 买入 Banque Générale 欧式 Call：C=0.74 欧元，K=50，T=3 个月。</blockquote>
+<blockquote>已知 Δ=N(d₁)=0.3426，N(d₂)=0.31728，r=4%（连续复利）。求当前股价 S。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>由 B-S 公式：C = S·N(d₁) − K·\(e^{−rT}\)·N(d₂)</p>
+<p>代入已知数值：</p>
+<p>\[0.74 = S \times 0.3426 - 50 \times e^{-0.04\times 0.25} \times 0.31728\]</p>
+<p>计算 \(e^{−0.01}\)：</p>
+<p>\[e^{-0.01} \approx 0.99005\]</p>
+<p>代入：</p>
+<p>\[0.74 = 0.3426S - 50 \times 0.99005 \times 0.31728\]</p>
+<p>\[0.74 = 0.3426S - 15.708\]</p>
+<p>\[0.3426S = 16.448\]</p>
+<p>\[S = \frac{16.448}{0.3426} = \boxed{48.00 \text{ 欧元}}\]</p>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 20：同题(b) — 波动率变化后重新定价 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>1 个月后，股价跌到 43.20 欧元，σ 上升到 40%。T 剩余 2 个月。求新期权价格。</blockquote>
+<blockquote>已知：N(0.7727)=0.7802, N(0.9360)=0.8254, N(0.2273)=0.5899, N(0.0640)=0.5255</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>① 算 d₁：</p>
+<p>\[d_1 = \frac{\ln(43.20/50) + (0.04 + 0.40^2/2) \times 2/12}{0.40\sqrt{2/12}}\]</p>
+<p>分子：ln(0.864) + (0.04+0.08)×0.1667 = −0.1462 + 0.02 = <strong>−0.1262</strong></p>
+<p>分母：0.40 × 0.4082 = <strong>0.1633</strong></p>
+<p>\[d_1 = -0.1262/0.1633 = \mathbf{-0.7727}\]</p>
+<p>② d₂ = d₁ − σ√T = −0.7727 − 0.1633 = <strong>−0.9360</strong></p>
+<p>③ 查表：</p>
+<ul>
+<li>N(d₁) = N(−0.7727) = 1 − N(0.7727) = 1 − 0.7802 = <strong>0.2198</strong></li>
+<li>N(d₂) = N(−0.9360) = 1 − N(0.9360) = 1 − 0.8254 = <strong>0.1746</strong></li>
+</ul>
+<p>④ C = 43.20 × 0.2198 − 50 × \(e^{−0.04×2/12}\) × 0.1746</p>
+<p>\[C = 9.50 - 50 \times 0.9934 \times 0.1746 = 9.50 - 8.68 = \boxed{0.82 \text{ 欧元}}\]</p>
+<blockquote>股价从 48→43.20（<strong>跌 10%</strong>），时间从 3 个月→2 个月，但期权价从 0.74→0.82（<strong>涨 10.8%</strong>）！</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 21：同题(c) — Vega 效应论述题 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>解释为什么股价下跌 10%、时间流逝 1 个月，但期权价格反而上升？</blockquote>
+<p><strong>解析（标准答案）</strong>：</p>
+<p>7 月 15 日期权价 0.74 对应隐含波动率约 <strong>14%</strong>（市场平静期）。</p>
+<p>次贷危机爆发后：</p>
+<ul>
+<li><strong>Delta 效应</strong>：股价从 48→43.20 → 期权价格应<strong>下降</strong></li>
+<li><strong>Theta 效应</strong>：到期时间减少 → 时间价值减少 → 期权价格应<strong>下降</strong></li>
+<li><strong>Vega 效应</strong>：危机带来巨大不确定性 → 波动率从 14% 飙升到 40% → 期权价格大幅<strong>上升</strong></li>
+</ul>
+<p><strong>Vega 的影响超过了 Delta 和 Theta 的联合影响。</strong></p>
+<blockquote>在危机时期，波动率（Vega）是期权定价的主导因素。</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 22：同题(d)-(e) — 期货定价 + 套保 ★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>Euro Stoxx 50 当前 4183 点，37 天后到期，无红利，r=4%。求期货价格。</blockquote>
+<blockquote>基金 7500 万欧元（与指数成分相同，β=1），对 20% 套保。</blockquote>
+<p><strong>解析</strong>：</p>
+<p>(d) F = S·\(e^{r·t}\) = 4183 × \(e^{0.04×37/365}\) = 4183 × 1.00406 = <strong>4200 点</strong></p>
+<p>(e) 需套保：20% × 7500 万 = 1500 万。每份合约价值 = 4200×10 = 42,000 欧元。</p>
+<p>\[N = -\beta \times \frac{V}{F \times m} = -1 \times \frac{15,000,000}{42,000} = \boxed{-357 \text{ 份（卖出）}}\]</p>
+</div>
+<hr class="section-divider">
+<h2>第八章 希腊字母与期权对冲</h2>
+<h3>8.1 五大希腊字母速览</h3>
+<table><tr><td>字母</td><td>名称</td><td>衡量什么</td><td>对 Call 的公式</td></tr><tr><td>$Δ (Delta)$</td><td>价格敏感度</td><td>股价变 1 → 期权价变多少</td><td>N(d₁)</td></tr><tr><td>$Γ (Gamma)$</td><td>Delta 的变化率</td><td>股价变 1 → Delta 变多少</td><td>$n(d₁)/(Sσ√T)$</td></tr><tr><td>$Θ (Theta)$</td><td>时间衰减</td><td>过一天 → 期权价减多少</td><td>负值（衰减）</td></tr><tr><td>$ν (Vega)$</td><td>波动率敏感度</td><td>$σ 涨 1% → 期权价涨多少$</td><td>S√T·n(d₁)</td></tr><tr><td>$ρ (Rho)$</td><td>利率敏感度</td><td>r 涨 1% → 期权价变多少</td><td>$KTe^{−rT}N(d₂)$</td></tr></table>
+<blockquote>n(d₁) = 标准正态概率密度函数（钟形曲线的高度）</blockquote>
+<h3>8.2 Delta（Δ）详解</h3>
+<ul>
+<li><strong>Call</strong>：Δ ∈ (0, 1)。深度价内 → Δ≈1（股价涨 1，期权也涨 1）；深度价外 → Δ≈0</li>
+<li><strong>Put</strong>：Δ ∈ (−1, 0)。深度价内 → Δ≈−1；深度价外 → Δ≈0</li>
+</ul>
+<p><strong>Delta 对冲</strong>：</p>
+<ul>
+<li>卖 1 份 Call（Δ=−N(d₁) 的组合贡献） + 买 N(d₁) 股股票 → 组合 Δ=0</li>
+<li>股价涨 → Delta 升 → 需要买入更多股票来维持中性</li>
+</ul>
+<h3>8.3 Gamma（Γ）详解</h3>
+<blockquote>Γ 衡量 Delta 的变化有多快。<strong>Γ 始终为正</strong>（无论是 Call 还是 Put）。</blockquote>
+<ul>
+<li>平价期权（S≈K）的 Γ <strong>最大</strong> → Delta 变化最快 → 对冲动最频繁</li>
+<li>到期日临近 → 平价期权 Γ 急剧增大 → 对冲越来越困难</li>
+</ul>
+<h3>8.4 Vega（ν）详解</h3>
+<blockquote>波动率每涨 1 个百分点，期权价格涨 ν 元。<strong>ν 始终为正</strong>。</blockquote>
+<ul>
+<li>平价期权 ν 最大</li>
+<li>长期期权 ν > 短期期权（时间越长，波动率影响越大）</li>
+</ul>
+<h3>8.5 Delta-Gamma 中性</h3>
+<p>只用股票只能消灭 Delta。要同时消灭 Gamma，需要<strong>第二种衍生品</strong>（不同执行价格的期权）。</p>
+<p>联立方程组（x, y 为两种期权的头寸）：</p>
+<p>\[\begin{cases} \Delta_1 \cdot n_1 + \Delta_2 \cdot n_2 + \Delta_{portfolio} = 0 &\text{（Delta 中性）}\\ \Gamma_1 \cdot n_1 + \Gamma_2 \cdot n_2 = 0 &\text{（Gamma 中性，组合 Γ 原为 0）}\end{cases}\]</p>
+<hr class="section-divider">
+<h3> 【真题归类 — Delta-Gamma 中性】</h3>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 23：习题 2 Q5(4) — Delta-Gamma 中性 ★★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>用 K=3600 Put（Δ=−0.357, Γ=0.000559）和 K=3800 Call（Δ=0.523, Γ=0.000646），</blockquote>
+<blockquote>对组合（等价指数 3,232 份）进行 Delta-Gamma 中性。求期权头寸和初始成本。</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p>设 x = K=3600 Put 头寸，y = K=3800 Call 头寸（正值=买入）。</p>
+<p><strong>Gamma 方程</strong>（组合本身没有 Gamma）：</p>
+<p>\[0.000559x + 0.000646y = 0\]</p>
+<p>\[\Rightarrow x = -\frac{0.000646}{0.000559}y = -1.156y\]</p>
+<p>（x 与 y 符号相反 → 一买一卖）</p>
+<p><strong>Delta 方程</strong>（组合 Delta 由 3,232 份指数等价量产生，视为 +3,232）：</p>
+<p>\[-0.357x + 0.523y + 3,232 = 0\]</p>
+<p>代入 x = −1.156y：</p>
+<p>\[-0.357(-1.156y) + 0.523y = -3,232\]</p>
+<p>\[0.412y + 0.523y = -3,232\]</p>
+<p>\[0.935y = -3,232\]</p>
+<p>\[y = \boxed{-3,455}\]</p>
+<p>（负号 = <strong>卖出</strong> 3,455 份 K=3800 Call）</p>
+<p>\[x = -1.156 \times (-3,455) = \boxed{+3,993}\]</p>
+<p>（正号 = <strong>买入</strong> 3,993 份 K=3600 Put）</p>
+<p><strong>初始成本</strong>：</p>
+<p>\[\text{成本} = -3,455 \times 238.20 + 3,993 \times 179.00\]</p>
+<p>\[= -822,981 + 714,747 = \boxed{-108,234 \text{ 欧元}}\]</p>
+<blockquote>负成本 = 构建这个对冲组合<strong>净赚 108,234 欧元</strong>。</blockquote>
+</div>
+<hr class="section-divider">
+<div class="highlight-box">
+<h4>真题 24：习题 2 Q6(5)-(6) — 动态 Delta 对冲 ★★★</h4>
+<p><strong>题目</strong>：</p>
+<blockquote>Nikkei 指数 16,000，r=2%，T=3 个月。出售 1,000 份 K=17,000 Call（每份 Δ=0.306）。</blockquote>
+<blockquote>期货 Δ = \(e^{rT}\) = 1.005。</blockquote>
+<blockquote>(5) 需要多少期货头寸来进行 Delta 对冲？</blockquote>
+<blockquote>(6) 股价下跌后如何调整期货头寸？</blockquote>
+<p><strong>详细解析</strong>：</p>
+<p><strong>(5)</strong> 售出 Call → Call 空头，其 Delta 贡献 = −0.306。</p>
+<p>用期货对冲：期货 Delta = \(e^{0.02×0.25}\) = <strong>1.005</strong>（期货 Δ>1 因为到期时 F=S 且现在 F=S·\(e^{rT}\)）。</p>
+<p>每份 Call 空头需要对冲的期货数量 = 0.306 / 1.005 = <strong>0.3045 份</strong>（空头）</p>
+<p>共 1,000 份 → <strong>卖空 304.5 份期货</strong></p>
+<p><strong>(6)</strong> 股价下跌 → Call 的 Delta <strong>减小</strong> → 空头 Call 的 Delta（负值）<strong>靠近零</strong></p>
+<p>→ 当前期货空头 <strong>过大了</strong> → 需要<strong>买入期货</strong>来减小空头规模。</p>
+<blockquote>股价跌 → Call Delta 跌 → 空头 Delta 负值变小 → 买期货</blockquote>
+</div>
+<hr class="section-divider">
+<h2>附录：公式终极速查卡</h2>
+<h3>连续复利换算</h3>
+<table><tr><td>转换</td><td>公式</td></tr><tr><td>年 m 次 → 连续</td><td>$Rc = m·ln(1 + Rm/m)$</td></tr><tr><td>连续 → 年 m 次</td><td>$Rm = m·(e^{Rc/m} − 1)$</td></tr></table>
+<h3>远期/期货定价</h3>
+<table><tr><td>资产</td><td>F</td></tr><tr><td>无收益</td><td>$F = Se^{rT}$</td></tr><tr><td>现金收益 I</td><td>$F = (S−I)e^{rT}$</td></tr><tr><td>红利率 q</td><td>$F = Se^{(r−q)T}$</td></tr><tr><td>投资商品+存储成本U</td><td>$F = (S+U)e^{rT}$</td></tr><tr><td>消费商品+便利收益y</td><td>$F ≤ Se^{(r+u−y)T}$</td></tr></table>
+<h3>远期估值</h3>
+<p>\[f = (F-K)e^{-rT}\]</p>
+<h3>套期保值数量</h3>
+<table><tr><td>用途</td><td>公式</td></tr><tr><td>股指期货</td><td>$N = β·V / (F·m)$</td></tr><tr><td>Beta 调整</td><td>$N = (β_T−β_P)/β_F · V/(F·m)$</td></tr><tr><td>久期对冲</td><td>$N = D_P·V_P / (D_F·P_F)$</td></tr><tr><td>久期调整</td><td>$N = (D_T−D_P)/D_F · V/P_F$</td></tr><tr><td>最优比率</td><td>$h* = ρ·σ_S/σ_F$</td></tr></table>
+<h3>修正久期</h3>
+<p>\[D_{mod} = D/(1+y), \quad \Delta P/P \approx -D_{mod}·\Delta y\]</p>
+<h3>远期利率</h3>
+<p>\[R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}\]</p>
+<h3>期权平价</h3>
+<p>\[c + Xe^{-rT} = p + S \quad \text{（无红利）}\]</p>
+<p>\[c + D + Xe^{-rT} = p + S \quad \text{（有红利）}\]</p>
+<h3>Black-Scholes</h3>
+<p>\[c = S_0 N(d_1) - Ke^{-rT}N(d_2)\]</p>
+<p>\[d_1 = \frac{\ln(S_0/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}, \quad d_2 = d_1 - \sigma\sqrt{T}\]</p>
+<h3>二叉树</h3>
+<p>\[p = \frac{e^{r\Delta t} - d}{u - d}, \quad f = e^{-r\Delta t}[p f_u + (1-p)f_d]\]</p>
+<h3>希腊字母（看涨期权）</h3>
+<table><tr><td>字母</td><td>公式</td></tr><tr><td>$Δ$</td><td>N(d₁)</td></tr><tr><td>$Γ$</td><td>$n(d₁)/(Sσ√T)$</td></tr><tr><td>$ν$</td><td>S√T·n(d₁)</td></tr><tr><td>$ρ$</td><td>$KTe^{−rT}N(d₂)$</td></tr></table>
+<h3>希腊字母与 B-S PDE</h3>
+<p>\[\Theta + rS\Delta + \frac{1}{2}\sigma^2 S^2 \Gamma = rf\]</p>
+<hr class="section-divider">
+<p>*本手册基于张玉新老师《金融工程学》全部 PPT、三年习题讲解、七年真题整理。*</p>
+<p>*2026 年 6 月·期末备考版*</p>
+<div class="footer">
+    <p><strong>金融工程学备考手册 v2</strong></p>
+    <p>基于张玉新老师全部 PPT、三年习题讲解、七年真题整理</p>
+    <p>全部公式使用 MathJax 渲染 &middot; 2026 年 6 月 &middot; 期末备考版</p>
+</div>
+</div>
+</body>
+</html>
